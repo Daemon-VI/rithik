@@ -1,0 +1,5 @@
+# Evaluation corpus
+
+`dev.jsonl` and `test.jsonl` hold synthetic SMS and WhatsApp-style messages, one JSON object per line (`id`, `label` as `scam` or `ham`, `category`, `text`). They were written from patterns in public Indian fraud advisories, and the ham side was deliberately made hard: real-style bank OTPs, debit alerts with "Not you? call" lines, bill reminders that mention disconnection, and chats that mention money, OTPs or KYC. The process that wrote them never saw the rules in `src/`. Phone numbers are placeholders, either masked with `X` or in a `90000 000xx` shape. Every scam link uses an invented domain, and every legitimate link uses the real official domain of the organisation named.
+
+`dev.jsonl` may be read and used to tune rules. `test.jsonl` is held out: only score it, and never inspect it or its failures while tuning, or its numbers stop meaning anything. Both files share a category mix but not their messages. The scores they produce describe this small synthetic set, not accuracy on real-world messages.
