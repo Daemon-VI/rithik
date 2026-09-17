@@ -26,3 +26,38 @@
 
 Why there are no runtime dependencies: `pipx install` should take seconds, and nothing
 upstream can break it.
+
+## The JavaScript port (`js/`)
+
+`npx rithik` runs a port of the Python package, not a wrapper around it, so it needs nothing
+but Node 18 or newer.
+
+- `js/bin/rithik.js`: the npm `bin` entry. It must keep LF line endings, which
+  `.gitattributes` enforces.
+- `js/lib/cli.js`, `card.js`, `term.js`, `stdin.js`, `version.js`: mirror `cli.py`,
+  `card.py` and `_term.py`. The version is read from `package.json`.
+- `js/lib/scam/engine.js`, `rules.js`, `urls.js`, `weights.js`, `model.js`: mirror
+  `src/rithik/scam/`, file for file. `rules.js` keeps the patterns in Python syntax, character
+  for character.
+- `js/lib/scam/pycompat.js`: translates the Python patterns and refuses any syntax it cannot
+  carry over faithfully. It also holds the Python semantics JS lacks:
+  - Unicode `\w`, `\d` and `\b`;
+  - Python's whitespace set;
+  - code-point lengths and slices;
+  - `round(x, 3)` half to even;
+  - `ipaddress` parsing.
+- `js/lib/pyjson.js`, `js/lib/pytext.js`: `json.dumps(indent=2)` with Python float repr and
+  `\uXXXX` escapes, and a port of `textwrap.wrap`. Together they make the terminal output
+  byte-identical.
+
+### How the two stay in step
+
+`scripts/export_golden.py` runs the Python code and writes two golden files:
+- `js/test/golden/scam.json`: a report for every corpus message and every edge case in
+  `EXTRA_CASES`;
+- `js/test/golden/cli.json`: stdout and the exit code for fixed argv lists.
+
+`npm test` holds the port to both files. The checks are exact, except the unrounded score,
+which allows 1e-12 because V8's `Math.exp` can differ in the last bit. CI runs
+`export_golden.py --check`, so a Python change that skips regenerating the golden files fails.
+When a new Python/JS difference turns up, add an input for it to `EXTRA_CASES`.

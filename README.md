@@ -8,21 +8,32 @@ and it tells you which known patterns matched, why they matter, and what to do n
 
 ## Install
 
-Works now, straight from GitHub:
+With Node.js 18 or newer, you can run it without installing anything:
 
 ```sh
-pipx install git+https://github.com/Daemon-VI/rithik
+npx rithik                          # once it is published to npm
+npx github:Daemon-VI/rithik         # works now, straight from GitHub
+npm install -g rithik               # or keep the `rithik` command around
 ```
 
-Once it is published to PyPI:
+With Python 3.9 or newer:
 
 ```sh
-pipx install rithik        # installs the `rithik` command
-uvx rithik                 # or run it once without installing
+pipx install git+https://github.com/Daemon-VI/rithik   # works now
+pipx install rithik                                    # once it is published to PyPI
+uvx rithik                                             # run once without installing
 ```
 
-It needs Python 3.9 or newer and has no dependencies outside the standard library. If the
-`rithik` script is not on your `PATH`, `python -m rithik` does the same thing.
+Neither version has any dependencies. If the `rithik` script is not on your `PATH`,
+`python -m rithik` does the same thing.
+
+### One engine, two runtimes
+
+The Python package is the reference implementation, and the npm package is a JavaScript port
+of it. The port is tested against golden files generated from the Python code: every corpus
+message and edge case must produce the same verdict, reasons and score, and the terminal output
+must match byte for byte. CI fails if the Python code changes and the golden files are not
+regenerated.
 
 ## Usage
 
@@ -186,11 +197,16 @@ uv sync
 uv run pytest -q
 uv run ruff check
 uv run ruff format
+uv run python scripts/export_golden.py   # after any behaviour change
+npm test                                 # the JavaScript port must still match
 ```
+
+A rule change goes into both `src/rithik/scam/` and its mirror in `js/lib/scam/`. Change the
+Python first, regenerate the golden files, then bring the port level until `npm test` passes.
 
 Some constraints apply:
 
-- The code must run on Python 3.9 and use only the standard library.
+- The code must run on Python 3.9 and Node 18, and use only the standard library.
 - It must never touch the network.
 - Test messages must be invented. Never use a real person's message, number or account.
 - Scam links in tests must use invented domains.

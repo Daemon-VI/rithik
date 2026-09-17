@@ -1,0 +1,39 @@
+{
+  "name": "rithik",
+  "version": "0.1.0",
+  "description": "Rithik Krishna T's terminal card, plus an offline checker for Indian scam SMS, WhatsApp messages and links.",
+  "type": "module",
+  "bin": {
+    "rithik": "js/bin/rithik.js"
+  },
+  "files": [
+    "js/bin/",
+    "js/lib/"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test js/test/scam.parity.test.js js/test/cli.parity.test.js"
+  },
+  "keywords": [
+    "scam",
+    "phishing",
+    "sms",
+    "upi",
+    "india",
+    "security",
+    "cli",
+    "card"
+  ],
+  "author": "Rithik Krishna T (https://github.com/Daemon-VI)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daemon-VI/rithik.git"
+  },
+  "homepage": "https://github.com/Daemon-VI/rithik#readme",
+  "bugs": {
+    "url": "https://github.com/Daemon-VI/rithik/issues"
+  }
+}

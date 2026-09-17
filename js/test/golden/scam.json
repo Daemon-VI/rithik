@@ -1,0 +1,4639 @@
+[
+ {
+  "id": "dev-001",
+  "input": "Dear user, overspeeding e-challan issued for ur vehicle. Download the challan copy and pay from the app: RTO_Challan.apk",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "apk_download",
+     "label": "Asks you to install an app file (APK) from outside the Play Store.",
+     "evidence": "RTO_Challan.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "echallan",
+     "label": "Mentions a traffic e-challan; fake challan links are a common phishing lure.",
+     "evidence": "e-challan",
+     "weight": 0.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "dev-002",
+  "input": "Dear Customer, your KYC details have been successfully updated for your Axis Bank account XX6620. No further action is required. -Axis Bank",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-003",
+  "input": "Hi! Your Meesho order could not be delivered today as the address was not reachable. We will try again tomorrow. You can update your address in the app or at meesho.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "update your address",
+     "weight": 1.0
+    },
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "meesho.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "meesho.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-004",
+  "input": "This is FedEx. Your parcel from Taiwan contains 5 passports, 3 credit cards and 140g MDMA. Press 1 to talk to our executive, your case is being transferred to Mumbai Cyber Crime.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "authority_threat",
+     "label": "Claims to be police, CBI, customs or another agency and threatens legal trouble.",
+     "evidence": "parcel from Taiwan contains 5 passports, 3 credit cards and 140g MDMA",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "dev-005",
+  "input": "Hey!! I accidentally sent my 6 digit verification code to your number, can u pls send it back to me? It's urgent 🙏",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.713,
+   "reasons": [
+    {
+     "code": "otp_request",
+     "label": "Asks you to share an OTP; no bank, company or officer ever needs your OTP.",
+     "evidence": "verification code to your number, can u pls send",
+     "weight": 3.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "urgent",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.7134952031398099
+  }
+ },
+ {
+  "id": "dev-006",
+  "input": "Hello, I'm from a hiring agency. We have a part-time job for you: like YouTube videos and earn Rs 150 per like. Daily income Rs 3000-8000. Interested? Reply YES to start.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "task_job_offer",
+     "label": "Offers easy paid 'tasks' or part-time work, a common route into deposit scams.",
+     "evidence": "like YouTube videos and earn",
+     "weight": 2.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "dev-007",
+  "input": "VAHAN: A traffic challan of Rs 500 is pending against your vehicle. Pay before 18-09-2026 to avoid court case & licence suspension: echallan-parivahan.cfd/pay",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.885,
+   "reasons": [
+    {
+     "code": "echallan",
+     "label": "Mentions a traffic e-challan; fake challan links are a common phishing lure.",
+     "evidence": "traffic challan",
+     "weight": 2.5
+    },
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "echallan-parivahan.cfd/pay",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "echallan-parivahan.cfd/pay",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "echallan-parivahan.cfd/pay"
+   ],
+   "score_exact": 0.8854411560073123
+  }
+ },
+ {
+  "id": "dev-008",
+  "input": "GPay reward: ₹2,499 is waiting for you. Tap Pay and enter your PIN to claim it to your bank: gpay-rewards-claim.shop/r/88213",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.931,
+   "reasons": [
+    {
+     "code": "upi_pin_to_receive",
+     "label": "Asks for a PIN to receive money; receiving money never needs your UPI PIN.",
+     "evidence": "enter your PIN to claim",
+     "weight": 3.0
+    },
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "gpay-rewards-claim.shop/r/88213",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "gpay-rewards-claim.shop/r/88213",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "gpay-rewards-claim.shop/r/88213",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "gpay-rewards-claim.shop/r/88213"
+   ],
+   "score_exact": 0.9305165487771985
+  }
+ },
+ {
+  "id": "dev-009",
+  "input": "Congratulations! You received Rs 5,000 cashback from PhonePe. To receive the amount in your bank account, open the request and enter your UPI PIN. Offer valid 30 min only.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-010",
+  "input": "Amount of Rs 49,999 debited from your account for a new iPhone order. If not done by you, call 98XXXXXX52 to cancel the order.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-011",
+  "input": "Maa I've sent 2000 to your SBI account, check karo aaya ki nahi",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-012",
+  "input": "Dear Customer, your Amazon order #408-XXXXXXX-XXXXXXX was cancelled. Refund of Rs 3,249 is on hold. Fill your bank and card details to get the refund: amazon-refund-desk.cfd/form",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.736,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "amazon-refund-desk.cfd/form",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "amazon-refund-desk.cfd/form",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "amazon-refund-desk.cfd/form"
+   ],
+   "score_exact": 0.7364028618842733
+  }
+ },
+ {
+  "id": "dev-013",
+  "input": "Dear taxpayer, ur ITR refund of Rs 8,700 is approved. Submit ur debit card details to receive the refund within 24 hr: efiling-refund-portal.xyz",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.826,
+   "reasons": [
+    {
+     "code": "tax_refund",
+     "label": "Says an income-tax refund is waiting; the department never asks you to claim it.",
+     "evidence": "ITR refund of Rs 8,700 is approved. Submit",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "efiling-refund-portal.xyz",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "efiling-refund-portal.xyz",
+     "weight": 1.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "within 24 hr",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "efiling-refund-portal.xyz"
+   ],
+   "score_exact": 0.8262260565495548
+  }
+ },
+ {
+  "id": "dev-014",
+  "input": "PNR:4XXXXXXX21,TRN:12XXX,DOJ:20-09-26,SL,SC-VSKP,DP:17:40,Boarding at SC. Passenger 1: CNF S4 32. Chart prepared. -IRCTC",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-015",
+  "input": "Your Aadhaar address update request (URN 0000-0000-12345) is successfully completed. Download your updated e-Aadhaar at myaadhaar.uidai.gov.in",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "myaadhaar.uidai.gov.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "myaadhaar.uidai.gov.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-016",
+  "input": "TSSPDCL: Dear Consumer, bill for SC No. 1XXXXXXXXX for Aug-26 is Rs 1,284, due on 20-09-26. Pay at tsspdcl.in to avoid disconnection and surcharge.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "tsspdcl.in",
+     "weight": 2.5
+    }
+   ],
+   "urls": [
+    "tsspdcl.in"
+   ],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "dev-017",
+  "input": "Sir for solving your UPI payment failure pls download AnyDesk from Play Store and share the 9 digit code shown on screen, I will fix it from my side.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "remote_access_app",
+     "label": "Names a screen-sharing app; scammers use these to watch you type your PIN.",
+     "evidence": "download AnyDesk",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "dev-018",
+  "input": "Dear SBI user, your YONO account will be suspended today due to incomplete KYC. Update your PAN immediately to avoid blocking: http://sbi-yono-kyc.top/update",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.976,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "http://sbi-yono-kyc.top/update",
+     "weight": 2.5
+    },
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "KYC. Update",
+     "weight": 2.0
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "YONO account will be suspended",
+     "weight": 1.75
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "http://sbi-yono-kyc.top/update",
+     "weight": 1.5
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be suspended",
+     "weight": 1.25
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "http://sbi-yono-kyc.top/update",
+     "weight": 1.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    },
+    {
+     "code": "url_plain_http",
+     "label": "Link is not encrypted (plain http).",
+     "evidence": "http://sbi-yono-kyc.top/update",
+     "weight": 0.5
+    }
+   ],
+   "urls": [
+    "http://sbi-yono-kyc.top/update"
+   ],
+   "score_exact": 0.9764822541439909
+  }
+ },
+ {
+  "id": "dev-019",
+  "input": "Dear Customer, 736204 is your One Time Password for NetBanking login. NEVER share this OTP with anyone, including bank staff. -HDFC Bank",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "NEVER share this OTP",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-020",
+  "input": "KBC JIO LUCKY DRAW 2026 !! YOUR NUMBER HAS WON RS 25,00,000/- . TO CLAIM CONTACT KBC MANAGER ON WHATSAPP +91 90000 00042. REGISTRATION FEE RS 12,500 ONLY.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.713,
+   "reasons": [
+    {
+     "code": "prize_lottery",
+     "label": "Says you won a prize, lottery or lucky draw you never entered.",
+     "evidence": "KBC JIO LUCKY DRAW 2026 !! YOUR NUMBER HAS WON",
+     "weight": 3.0
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "REGISTRATION FEE",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.7134952031398099
+  }
+ },
+ {
+  "id": "dev-021",
+  "input": "Hi, reminder from Smile Dental Care: your cleaning is booked for tomorrow at 6 PM. Call 98XXXXXX45 if you need to reschedule.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-022",
+  "input": "LAST FEW HOURS! Big Billion Days deals end at midnight. Up to 80% OFF on electronics. Limited stock, shop now: flipkart.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "flipkart.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "flipkart.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-023",
+  "input": "प्रिय उपभोक्ता, आपका बिजली बिल बकाया है। आज रात 10 बजे आपकी बिजली काट दी जाएगी। अभी भुगतान करें: bijli-bill-bhugtan.online",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.393,
+   "reasons": [
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "bijli-bill-bhugtan.online",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "bijli-bill-bhugtan.online"
+   ],
+   "score_exact": 0.3934693402873666
+  }
+ },
+ {
+  "id": "dev-024",
+  "input": "Dear SBI Card holder, your 7,850 reward points worth Rs 7,850 expire TODAY! Redeem now directly to your account: sbicard-points-redeem.live",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.918,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "sbicard-points-redeem.live",
+     "weight": 2.5
+    },
+    {
+     "code": "reward_points",
+     "label": "Says reward points are about to expire, to lure you to a card-details page.",
+     "evidence": "reward points worth Rs",
+     "weight": 1.75
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "sbicard-points-redeem.live",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "sbicard-points-redeem.live",
+     "weight": 1.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "expire TODAY",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "sbicard-points-redeem.live"
+   ],
+   "score_exact": 0.9179150013761012
+  }
+ },
+ {
+  "id": "dev-025",
+  "input": "Work from home opportunity!! Just rate hotels on Google Maps and earn Rs 50 per task, payment same day. Add our HR on WhatsApp 88XXX-XX219 to join the group.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "task_job_offer",
+     "label": "Offers easy paid 'tasks' or part-time work, a common route into deposit scams.",
+     "evidence": "rate hotels on Google Maps and earn",
+     "weight": 2.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "dev-026",
+  "input": "This is CBI Headquarters New Delhi. An FIR has been registered against your Aadhaar in a money laundering case. You are under digital arrest. Do not disconnect the video call or inform anyone. Transfer your funds to the RBI verification account for checking.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.865,
+   "reasons": [
+    {
+     "code": "digital_arrest",
+     "label": "Threatens a 'digital arrest'; no Indian agency arrests anyone over a call.",
+     "evidence": "digital arrest",
+     "weight": 3.5
+    },
+    {
+     "code": "authority_threat",
+     "label": "Claims to be police, CBI, customs or another agency and threatens legal trouble.",
+     "evidence": "CBI Headquarters New Delhi. An FIR",
+     "weight": 2.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8646647167633873
+  }
+ },
+ {
+  "id": "dev-027",
+  "input": "Money received! ₹350 from 98XXXXXX33@ybl has been added to your bank account XX9012. -PhonePe",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-028",
+  "input": "Your loan of Rs 50000 is sanctioned by an RBI registered NBFC. Pay insurance + GST Rs 3,450 to release the amount today. Call 70XXXXXX18.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.487,
+   "reasons": [
+    {
+     "code": "loan_offer",
+     "label": "Pushes an instant or pre-approved loan, a common lure for fee and data theft.",
+     "evidence": "loan of Rs 50000 is sanctioned by an RBI registered NBFC. Pay",
+     "weight": 2.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.486582880967408
+  }
+ },
+ {
+  "id": "dev-029",
+  "input": "the OTP isn't coming on my phone for the irctc login, can you try booking from your account instead?",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-030",
+  "input": "INR 45,000.00 credited to your A/c XX3302 on 01-SEP-26 by NEFT - SALARY. Avl Bal: INR 61,208.40 -Axis Bank",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-031",
+  "input": "found a good biryani recipe, try this one this weekend: https://www.youtube.com/results?search_query=hyderabadi+biryani",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "https://www.youtube.com/results?search_query=hyderabadi+biryani"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-032",
+  "input": "Refund of Rs 3,210 for A.Y. 2026-27 has been credited to your bank account ending XX4521. For details login to incometax.gov.in -ITD",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "incometax.gov.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "incometax.gov.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-033",
+  "input": "PRE-APPROVED LOAN Rs 5,00,000 @ 2% interest. No CIBIL check, no documents! Disbursal in 10 mins. Pay only Rs 1,999 file charge: quickloan-instant.online/apply",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.826,
+   "reasons": [
+    {
+     "code": "loan_offer",
+     "label": "Pushes an instant or pre-approved loan, a common lure for fee and data theft.",
+     "evidence": "LOAN Rs 5,00,000 @ 2% interest. No CIBIL",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "quickloan-instant.online/apply",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "quickloan-instant.online/apply",
+     "weight": 1.0
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "file charge",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "quickloan-instant.online/apply"
+   ],
+   "score_exact": 0.8262260565495548
+  }
+ },
+ {
+  "id": "dev-034",
+  "input": "LinkedIn: You appeared in 14 searches this week. Infosys is hiring for Data Analyst roles near you. See jobs at linkedin.com/jobs",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "linkedin.com/jobs"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-035",
+  "input": "Naukri: 8 new jobs match your profile 'Python Developer' in Hyderabad. Recruiters are actively hiring. View jobs at naukri.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "naukri.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-036",
+  "input": "Congratulations! Your mobile no. is selected in Tata Safari lucky draw on the occasion of Diwali. Claim your car now at tata-diwali-luckydraw.top (processing fee applicable)",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.875,
+   "reasons": [
+    {
+     "code": "prize_lottery",
+     "label": "Says you won a prize, lottery or lucky draw you never entered.",
+     "evidence": "lucky draw on the occasion of Diwali. Claim",
+     "weight": 3.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "tata-diwali-luckydraw.top",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "tata-diwali-luckydraw.top",
+     "weight": 1.0
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "processing fee",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "tata-diwali-luckydraw.top"
+   ],
+   "score_exact": 0.875485528555877
+  }
+ },
+ {
+  "id": "dev-037",
+  "input": "3391 is your OTP to verify your mobile number on Swiggy. Swiggy never calls to ask for your OTP. Please do not share it with anyone.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "OTP. Please do not share",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-038",
+  "input": "Your periodic KYC update is due. Please update it through YONO / Internet Banking at onlinesbi.sbi or visit your home branch. SBI never asks for KYC via links or calls. -SBI",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "KYC update",
+     "weight": 2.0
+    },
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "onlinesbi.sbi",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "onlinesbi.sbi"
+   ],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "dev-039",
+  "input": "OTP for adding a beneficiary in ICICI Bank iMobile is 590317. Do not share it with anyone. If not initiated by you, call 1800-XXX-0011 immediately.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "dev-040",
+  "input": "TRAI NOTICE: Your mobile number will be blocked in 2 hours because it is being used in illegal activities. Press 9 to speak with a TRAI officer or call 90000-00031 immediately.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.811,
+   "reasons": [
+    {
+     "code": "sim_deactivation",
+     "label": "Says your SIM or mobile number will be blocked; a classic pretext to get a call.",
+     "evidence": "TRAI NOTICE: Your mobile number will be block",
+     "weight": 3.0
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be blocked",
+     "weight": 1.25
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8111243971624382
+  }
+ },
+ {
+  "id": "dev-041",
+  "input": "ALERT: Your HDFC Bank NetBanking has been temporarily locked due to a suspicious login attempt. Re-activate within 2 hours: https://hdfc-secure-unlock.icu/login",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.885,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "https://hdfc-secure-unlock.icu/login",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "https://hdfc-secure-unlock.icu/login",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "https://hdfc-secure-unlock.icu/login",
+     "weight": 1.0
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "NetBanking has been temporarily locked",
+     "weight": 0.75
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "within 2 hours",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "https://hdfc-secure-unlock.icu/login"
+   ],
+   "score_exact": 0.8854411560073123
+  }
+ },
+ {
+  "id": "dev-042",
+  "input": "Aapka ICICI credit card block ho gaya hai. Card dobara chalu karne ke liye turant 1800-XXX-XX47 par call karein aur card number, expiry verify karein.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "turant",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "dev-043",
+  "input": "Dear Customer ur Paytm wallet KYC is pending. Wallet will be BLOCKED within 24 hrs. Call our KYC executive on 98XXXXXX01 and complete verification now.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.853,
+   "reasons": [
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "KYC is pending",
+     "weight": 2.0
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "wallet KYC is pending. Wallet will be BLOCKED",
+     "weight": 1.75
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be BLOCKED",
+     "weight": 1.25
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "within 24 hrs",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8529035326070232
+  }
+ },
+ {
+  "id": "dev-044",
+  "input": "Sir I am calling from SBI card department. We have sent one 6 digit code to your mobile for upgrading your card to platinum. Please tell me the code to complete the process otherwise card will be deactivated.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "card will be deactivated",
+     "weight": 1.75
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be deactivated",
+     "weight": 1.25
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "dev-045",
+  "input": "Congratulations! You've earned 120 SuperCoins on your last order. Use them before they expire at flipkart.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "flipkart.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "flipkart.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-046",
+  "input": "Rs.2,500.00 debited from A/c XX7781 on 15-09-26 to VPA Q00000XXXX@ybl (UPI Ref No 626XXXXXX014). Not you? Call 1800-XXX-2211 or SMS BLOCK to 9XXXXXXX00. -SBI",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-047",
+  "input": "Get a pre-approved Personal Loan up to Rs 10 lakh at attractive rates on HDFC Bank NetBanking. No documents needed for existing customers. T&C apply. Know more: hdfcbank.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.08,
+   "reasons": [
+    {
+     "code": "loan_offer",
+     "label": "Pushes an instant or pre-approved loan, a common lure for fee and data theft.",
+     "evidence": "pre-approved Personal Loan",
+     "weight": 1.5
+    },
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "hdfcbank.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "hdfcbank.com"
+   ],
+   "score_exact": 0.07995558537067671
+  }
+ },
+ {
+  "id": "dev-048",
+  "input": "214586 is your Aadhaar OTP for e-KYC, valid for 10 min. UIDAI never asks for OTP over phone. -UIDAI",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "never asks for OTP",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-049",
+  "input": "Dear candidate, you are selected for Amazon part time job (work from home). Salary 25000-45000/month. First complete a prepaid task of Rs 1000 and get Rs 1300 back instantly. Contact HR: 98XXXXXX77",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "task_job_offer",
+     "label": "Offers easy paid 'tasks' or part-time work, a common route into deposit scams.",
+     "evidence": "prepaid task",
+     "weight": 2.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "dev-050",
+  "input": "Your Aadhaar card has been misused for opening 3 bank accounts. For more details please call 1800-XXX-XX09 immediately.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "dev-051",
+  "input": "Your ticket for PNR 2XXXXXXX07 is WL 12. Check status at irctc.co.in or enquiry.indianrail.gov.in. Refund will be processed automatically if the ticket stays waitlisted.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "irctc.co.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "irctc.co.in",
+    "enquiry.indianrail.gov.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-052",
+  "input": "Hello this is Flipkart customer care. Your refund of Rs 1,799 failed due to technical issue. Please share the code you just received on SMS so we can process it to your account immediately.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "dev-053",
+  "input": "Your Amazon order #405-XXXXXXX-XXXXXXX for 'boAt Airdopes 141' will be delivered today by 9 PM. Track at amazon.in/your-orders. Share OTP 5821 with the delivery agent only at the time of delivery.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "amazon.in/your-orders",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "amazon.in/your-orders"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-054",
+  "input": "Flipkart: Your order for Redmi Note 14 is out for delivery. Our Wishmaster will call you from 80XXXXXX90. Track it at flipkart.com/account/orders",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "flipkart.com/account/orders",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "flipkart.com/account/orders"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-055",
+  "input": "Aadhaar-PAN link not done!! Your bank a/c will be freezed from tomorrow as per RBI new rule. Link now for Rs 10 only at pan-aadhar-seeding-help.xyz/verify",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.895,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "pan-aadhar-seeding-help.xyz/verify",
+     "weight": 2.5
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "a/c will be freezed",
+     "weight": 1.75
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "pan-aadhar-seeding-help.xyz/verify",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "pan-aadhar-seeding-help.xyz/verify",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "pan-aadhar-seeding-help.xyz/verify"
+   ],
+   "score_exact": 0.8946007754381357
+  }
+ },
+ {
+  "id": "dev-056",
+  "input": "Reminder: Your appointment with the dermatologist at Apollo Clinic, Kondapur is on 17-Sep at 11:30 AM. Please arrive 15 mins early. Reschedule at apollo247.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "apollo247.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-057",
+  "input": "JNTUH: Results of B.Tech II Year I Sem (R22) Regular/Supplementary exams are released. Check at results.jntuh.ac.in",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "results.jntuh.ac.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-058",
+  "input": "Hello sir I am the buyer for your sofa on OLX. I am in army, cant come personally. I have sent Rs 8,000 advance as request on Google Pay, pls accept and enter PIN so money comes to you.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-059",
+  "input": "Mumbai Police Cyber Cell: ur aadhar linked SIM is used for sending obscene msgs. Arrest warrant issued. Join Skype video statement NOW else local police will come to ur house. Contact 98XXXXXX64",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "authority_threat",
+     "label": "Claims to be police, CBI, customs or another agency and threatens legal trouble.",
+     "evidence": "Cyber Cell: ur aadhar linked SIM is used for sending obscene msgs. Arrest",
+     "weight": 2.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "dev-060",
+  "input": "Dear candidate, thank you for applying for the Assistant System Engineer role at TCS. Your online assessment is on 22 Sep 2026, 10:00 AM. Login details are on your registered email and at nextstep.tcsion.com. TCS never asks for money at any stage of hiring.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "nextstep.tcsion.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-061",
+  "input": "Your HDFC NetBanking Reward Points of Rs 9,340 will expire today. Redeem by updating your PAN: hdfc-rewardz.cfd",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.958,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "hdfc-rewardz.cfd",
+     "weight": 2.5
+    },
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "updating your PAN",
+     "weight": 2.0
+    },
+    {
+     "code": "reward_points",
+     "label": "Says reward points are about to expire, to lure you to a card-details page.",
+     "evidence": "Reward Points of Rs 9,340 will expire",
+     "weight": 1.75
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "hdfc-rewardz.cfd",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "hdfc-rewardz.cfd",
+     "weight": 1.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "expire today",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "hdfc-rewardz.cfd"
+   ],
+   "score_exact": 0.9578561564907236
+  }
+ },
+ {
+  "id": "dev-062",
+  "input": "Dear customer, to receive your electricity bill refund please install the app from this link and fill your details: tsspdcl-refund-app.xyz/Bill_Update.apk",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.95,
+   "reasons": [
+    {
+     "code": "apk_download",
+     "label": "Asks you to install an app file (APK) from outside the Play Store.",
+     "evidence": "Bill_Update.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_apk",
+     "label": "Link downloads an Android app file (APK) directly.",
+     "evidence": "tsspdcl-refund-app.xyz/Bill_Update.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "tsspdcl-refund-app.xyz/Bill_Update.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "tsspdcl-refund-app.xyz/Bill_Update.apk",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "tsspdcl-refund-app.xyz/Bill_Update.apk"
+   ],
+   "score_exact": 0.950212931632136
+  }
+ },
+ {
+  "id": "dev-063",
+  "input": "482913 is OTP for transaction of INR 1,249.00 at SWIGGY on your SBI Credit Card ending 4417. OTP is valid for 10 mins. Do not share this OTP with anyone for security reasons. -SBI Card",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "Do not share this OTP",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-064",
+  "input": "India Post: Speed Post article EM000000012IN booked on 12/09/2026 has been delivered. Track at indiapost.gov.in",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "indiapost.gov.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "indiapost.gov.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-065",
+  "input": "Myntra: Your ₹500 coupon EXPIRES TONIGHT! Use code STYLE500 before 11:59 PM. Shop at myntra.com T&C",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "EXPIRES TONIGHT",
+     "weight": 0.75
+    },
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "myntra.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "myntra.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-066",
+  "input": "Income Tax Dept: You are eligible for an income tax refund of Rs 15,490. Please verify your bank a/c number 5XXXXXX892. If incorrect, update here: incometax.gov.in.refund-verify.top",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.931,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "incometax.gov.in.refund-verify.top",
+     "weight": 2.5
+    },
+    {
+     "code": "tax_refund",
+     "label": "Says an income-tax refund is waiting; the department never asks you to claim it.",
+     "evidence": "income tax refund of Rs 15,490. Please verify",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "incometax.gov.in.refund-verify.top",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "incometax.gov.in.refund-verify.top",
+     "weight": 1.0
+    },
+    {
+     "code": "url_many_subdomains",
+     "label": "Link stacks many subdomains, a trick to push the real domain out of view.",
+     "evidence": "incometax.gov.in.refund-verify.top",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "incometax.gov.in.refund-verify.top"
+   ],
+   "score_exact": 0.9305165487771985
+  }
+ },
+ {
+  "id": "dev-067",
+  "input": "BESCOM: Your electricity bill of Rs 842.00 for RR No XXXXX is generated. Last date 25/09/2026. Pay online at bescom.co.in. Ignore if already paid.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.662,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "bescom.co.in",
+     "weight": 2.5
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "Last date",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "bescom.co.in"
+   ],
+   "score_exact": 0.6615345748932577
+  }
+ },
+ {
+  "id": "dev-068",
+  "input": "Dear customer your international parcel is held at Delhi customs. Pay customs duty Rs 2,950 via UPI to customs.clear2026@ybl within 24 hrs or parcel will be returned & legal action taken.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.885,
+   "reasons": [
+    {
+     "code": "authority_threat",
+     "label": "Claims to be police, CBI, customs or another agency and threatens legal trouble.",
+     "evidence": "customs.clear2026@ybl within 24 hrs or parcel will be returned & legal action",
+     "weight": 2.5
+    },
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "parcel is held",
+     "weight": 2.0
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "legal action",
+     "weight": 1.25
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "within 24 hrs",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8854411560073123
+  }
+ },
+ {
+  "id": "dev-069",
+  "input": "Forwarded: RBI never asks for your KYC details, OTP, UPI PIN or card number over call, SMS or link. You do NOT need to enter your UPI PIN to receive money. Report fraud at cybercrime.gov.in or call 1930.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "cybercrime.gov.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "cybercrime.gov.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-070",
+  "input": "Crypto trading bot doubling money in 7 days 💰💰 Invest 5000 get 10000 withdrawable, guaranteed. Zero risk. DM on WhatsApp 88XXX-XX402",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-071",
+  "input": "Papa, bank se koi call karke OTP maange toh mat dena, woh fraud hota hai. Kal branch jaake passbook update karwa lenge.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-072",
+  "input": "Dear students, III year I sem mid-term exams will start from 22-09-2026. Timetable is uploaded on the college website. Fee dues must be cleared before 20-09 to get the hall ticket. -Exam Cell",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-073",
+  "input": "Airtel: Your postpaid bill of Rs 599 is due on 18-Sep. Pay via the Airtel Thanks app or airtel.in to enjoy uninterrupted services.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "airtel.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "airtel.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-074",
+  "input": "Join our VIP stock tips group - 100% GUARANTEED returns, 300% in 30 days. SEBI registered experts. Last 10 seats! Invest min Rs 10,000: vip-stockprofit-club.top",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.777,
+   "reasons": [
+    {
+     "code": "investment_scheme",
+     "label": "Promises guaranteed, doubled or unrealistic investment returns.",
+     "evidence": "100% GUARANTEED returns",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "vip-stockprofit-club.top",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "vip-stockprofit-club.top",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "vip-stockprofit-club.top"
+   ],
+   "score_exact": 0.7768698398515702
+  }
+ },
+ {
+  "id": "dev-075",
+  "input": "bro can u send 500 on gpay? will return tmrw after salary 🙏",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-076",
+  "input": "Alert: You've spent INR 899.00 on HDFC Bank Credit Card XX0923 at NETFLIX on 2026-09-14. Not you? Block your card at hdfcbank.com or call 1800-XXX-XX61.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "hdfcbank.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "hdfcbank.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-077",
+  "input": "Hi, Airtel executive here. Your SIM upgrade from 4G to 5G is pending. You will get an OTP now, pls forward it to 70XXXXXX36 to activate 5G free.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "otp_request",
+     "label": "Asks you to share an OTP; no bank, company or officer ever needs your OTP.",
+     "evidence": "OTP now, pls forward",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "dev-078",
+  "input": "IndiaPost: Your package has arrived at the warehouse but could not be delivered due to incomplete address information. Please update your address within 12 hours: indiapost-redelivery.buzz/in",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.924,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "indiapost-redelivery.buzz/in",
+     "weight": 2.5
+    },
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "package has arrived at the warehouse but could not be delivered",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "indiapost-redelivery.buzz/in",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "indiapost-redelivery.buzz/in",
+     "weight": 1.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "within 12 hours",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "indiapost-redelivery.buzz/in"
+   ],
+   "score_exact": 0.9244781554912263
+  }
+ },
+ {
+  "id": "dev-079",
+  "input": "Dear Customer, Rs 12,000.00 has been debited from your account XX4452 via ATM withdrawal at HYDERABAD on 13-Sep-26. If not done by you, call our 24x7 helpline or visit icicibank.com to block your card. -ICICI Bank",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "icicibank.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "icicibank.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "dev-080",
+  "input": "Dear Consumer, your electricity power will be disconnected tonight at 9.30 PM from electricity office because your previous month bill was not update. Please immediately contact our electricity officer 98XXXXXX23. Thank you",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.811,
+   "reasons": [
+    {
+     "code": "utility_disconnection",
+     "label": "Threatens to cut your electricity or gas; power boards do not warn like this.",
+     "evidence": "your electricity power will be disconnected",
+     "weight": 3.0
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be disconnected",
+     "weight": 1.25
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8111243971624382
+  }
+ },
+ {
+  "id": "test-001",
+  "input": "Cashback of ₹750 from your recent payment is ready! Open the 'Receive Money' request in your UPI app and enter UPI PIN to credit. Expires in 15 min.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "upi_pin_to_receive",
+     "label": "Asks for a PIN to receive money; receiving money never needs your UPI PIN.",
+     "evidence": "Receive Money' request in your UPI app and enter UPI PIN",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "test-002",
+  "input": "Shipped: Your Amazon order of 'Prestige Induction Cooktop' has shipped and will arrive by Thursday. Track your package at amazon.in/your-orders",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "amazon.in/your-orders",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "amazon.in/your-orders"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-003",
+  "input": "Congrats! You've been shortlisted for an online data entry job. Earn Rs 35,000/month from home. Registration fee Rs 599 (refundable). Pay on UPI: dataentry.jobs2026@ybl",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "Registration fee",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "test-004",
+  "input": "Dad, I paid the college fee on the portal, receipt is in my email. Some message came asking to update KYC through a link, I ignored it, will go to the branch on Saturday.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.487,
+   "reasons": [
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "update KYC",
+     "weight": 2.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.486582880967408
+  }
+ },
+ {
+  "id": "test-005",
+  "input": "Dear customer I am calling from Axis Bank credit card dept. Your credit limit is increased to 2 lakh. You will receive an OTP for confirmation, kindly read it out to me to activate the limit.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-006",
+  "input": "Delhivery: Your shipment AWB 0000000045621 is out for delivery today. Our delivery associate will call before arriving. Share the delivery OTP only after you receive the package. Track at delhivery.com",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "otp_request",
+     "label": "Asks you to share an OTP; no bank, company or officer ever needs your OTP.",
+     "evidence": "Share the delivery OTP",
+     "weight": 3.0
+    }
+   ],
+   "urls": [
+    "delhivery.com"
+   ],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "test-007",
+  "input": "Parivahan Sewa: Traffic violation detected (signal jump) on 14-09-2026. Fine Rs 1,000. Pay within 24 hrs or double penalty: parivahan-echallan.gov-pay.top",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.911,
+   "reasons": [
+    {
+     "code": "echallan",
+     "label": "Mentions a traffic e-challan; fake challan links are a common phishing lure.",
+     "evidence": "echallan",
+     "weight": 2.5
+    },
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "parivahan-echallan.gov-pay.top",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "parivahan-echallan.gov-pay.top",
+     "weight": 1.5
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "within 24 hrs",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "parivahan-echallan.gov-pay.top"
+   ],
+   "score_exact": 0.9107814825907399
+  }
+ },
+ {
+  "id": "test-008",
+  "input": "Indeed: 5 new jobs for 'Data Science Intern' in Hyderabad, including roles at Amazon and Deloitte. Apply at indeed.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "indeed.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-009",
+  "input": "Dear Jio user, ur SIM KYC verification is pending. Ur outgoing calls will be stopped in 24 hrs. Call Jio KYC dept 90000-00058 for re-verification.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.487,
+   "reasons": [
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "KYC verification is pending",
+     "weight": 2.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.486582880967408
+  }
+ },
+ {
+  "id": "test-010",
+  "input": "प्रिय ग्राहक, KYC अपडेट न होने के कारण आपका बैंक खाता आज बंद कर दिया जाएगा। तुरंत अपडेट करें: bank-kyc-seva.top",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.393,
+   "reasons": [
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "bank-kyc-seva.top",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "bank-kyc-seva.top"
+   ],
+   "score_exact": 0.3934693402873666
+  }
+ },
+ {
+  "id": "test-011",
+  "input": "Electricity Board: Sir your smart meter balance is exhausted, supply will be cut in 1 hour. Recharge immediately by sending Rs 12 to officer UPI power.dept.helpdesk@paytm and share screenshot on WhatsApp 98XXXXXX19",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "test-012",
+  "input": "NCB OFFICIAL NOTICE: A case has been filed against you under NDPS Act. Your bank accounts will be frozen. Clear your name by paying a security deposit, refundable after verification. Contact the IO on WhatsApp video: 98XXXXXX08",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.777,
+   "reasons": [
+    {
+     "code": "authority_threat",
+     "label": "Claims to be police, CBI, customs or another agency and threatens legal trouble.",
+     "evidence": "case has been filed against you",
+     "weight": 2.5
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be frozen",
+     "weight": 1.25
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "security deposit",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.7768698398515702
+  }
+ },
+ {
+  "id": "test-013",
+  "input": "Booking Confirmed: PNR 8XXXXXXX44, Train 17XXX, DOJ 02-10-2026, 3A, KCG to TPTY, B2 45, Fare Rs 1,485. Download ticket at irctc.co.in -IRCTC",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "irctc.co.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "irctc.co.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-014",
+  "input": "yaar HDFC ka app kaam nahi kar raha, OTP hi nahi aa raha. tu mera Swiggy order pay kar de, abhi return karta hu",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-015",
+  "input": "URGENT: Your KYC has EXPIRED as per RBI guidelines. Update your KYC documents to continue using your debit card. Click kyc-rbi-verify.online/update and upload Aadhaar, PAN.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.924,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "kyc-rbi-verify.online/update",
+     "weight": 2.5
+    },
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "KYC has EXPIRED",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "kyc-rbi-verify.online/update",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "kyc-rbi-verify.online/update",
+     "weight": 1.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "URGENT",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "kyc-rbi-verify.online/update"
+   ],
+   "score_exact": 0.9244781554912263
+  }
+ },
+ {
+  "id": "test-016",
+  "input": "Swiggy: 60% OFF on your next 3 orders! Code valid TODAY ONLY. Order now: swiggy.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "swiggy.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-017",
+  "input": "Axis Bank: Your EDGE REWARD points balance is 3,420. 400 points expire on 30-Sep-26. Redeem them on Axis Mobile or at axisbank.com. Axis Bank never asks for card details over call.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.08,
+   "reasons": [
+    {
+     "code": "reward_points",
+     "label": "Says reward points are about to expire, to lure you to a card-details page.",
+     "evidence": "REWARD points balance is 3,420. 400 points expire",
+     "weight": 1.75
+    },
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "never asks for card details",
+     "weight": -1.0
+    },
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "axisbank.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "axisbank.com"
+   ],
+   "score_exact": 0.07995558537067671
+  }
+ },
+ {
+  "id": "test-018",
+  "input": "LOAN APPROVED ✅ Rs 75,000. Download RupeeBox app from the link and allow contacts & gallery access for instant disbursal: rupeebox-loan.cfd/app.apk",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.885,
+   "reasons": [
+    {
+     "code": "apk_download",
+     "label": "Asks you to install an app file (APK) from outside the Play Store.",
+     "evidence": "app.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_apk",
+     "label": "Link downloads an Android app file (APK) directly.",
+     "evidence": "rupeebox-loan.cfd/app.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "rupeebox-loan.cfd/app.apk",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "rupeebox-loan.cfd/app.apk"
+   ],
+   "score_exact": 0.8854411560073123
+  }
+ },
+ {
+  "id": "test-019",
+  "input": "Congrats on the new job!! 🎉 Party kab de raha hai? btw I won ₹200 in the office cricket pool lol",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-020",
+  "input": "You've received Rs 2,000 from 90XXXXXX55@ybl via UPI in your HDFC Bank a/c XX6678 on 15-09-26. Not you? Call 1800-XXX-4332 or visit hdfcbank.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "hdfcbank.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "hdfcbank.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-021",
+  "input": "Hi, this is the Talent Acquisition team at Wipro. Your interview is scheduled on 19-Sep at 2:00 PM on Microsoft Teams; the invite is in your email. Wipro never charges any fee for recruitment.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-022",
+  "input": "Hi, I'm HR from a digital marketing company. We offer a part time job, you just need to follow Instagram pages and send screenshots. Earn ₹200-₹500 per task, daily payment. Reply 1 to join.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "task_job_offer",
+     "label": "Offers easy paid 'tasks' or part-time work, a common route into deposit scams.",
+     "evidence": "follow Instagram pages and send screenshots. Earn",
+     "weight": 2.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "test-023",
+  "input": "Namaste, main Delhi Crime Branch se Inspector bol raha hu. Aapke naam ke parcel mein drugs mile hain. Aap digital arrest mein hain, video call cut mat karna aur kisi ko mat batana. Apne saare paise verification ke liye RBI account mein transfer karein.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.885,
+   "reasons": [
+    {
+     "code": "digital_arrest",
+     "label": "Threatens a 'digital arrest'; no Indian agency arrests anyone over a call.",
+     "evidence": "digital arrest",
+     "weight": 3.5
+    },
+    {
+     "code": "authority_threat",
+     "label": "Claims to be police, CBI, customs or another agency and threatens legal trouble.",
+     "evidence": "parcel mein drugs",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8854411560073123
+  }
+ },
+ {
+  "id": "test-024",
+  "input": "Practo: Your appointment with the general physician at CARE Clinic is confirmed for 18 Sep, 5:00 PM. Manage your booking at practo.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "practo.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-025",
+  "input": "OTP for DigiLocker sign-in is 603378. Valid for 10 minutes. Do not share it with anyone. -DigiLocker",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-026",
+  "input": "Bhai galti se tumhare number pe ₹3,000 bhej diya. Maine GPay pe request bheji hai, please PIN daal ke approve kar do 🙏",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-027",
+  "input": "Amma, rent 12000 transfer chesanu, owner ki cheppu. Screenshot WhatsApp lo pampanu",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-028",
+  "input": "SBI Card: Transaction of Rs 4,210.00 at RELIANCE DIGITAL on card ending 3309 on 12/09/26. If not done by you, SMS BLOCK 3309 to 56XXXXX or visit sbicard.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "sbicard.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "sbicard.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-029",
+  "input": "Dear Sir, I am calling from Income Tax Department. Your refund is ready but you need to pay a small processing charge of Rs 1,250 first. Please call back on 90000-00087.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "processing charge",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "test-030",
+  "input": "AMAZON 26TH ANNIVERSARY: You are selected for a FREE Samsung Galaxy phone! Only 3 left. Answer 4 questions and pay delivery Rs 99: amzn-anniversary-gift.buzz",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.736,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "amzn-anniversary-gift.buzz",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "amzn-anniversary-gift.buzz",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "amzn-anniversary-gift.buzz"
+   ],
+   "score_exact": 0.7364028618842733
+  }
+ },
+ {
+  "id": "test-031",
+  "input": "YOUR BOB ACCOUNT IS DEACTIVATED!!! DEAR USER COMPLETE VERIFICATION IMMEDIATLY ELSE ACCOUNT WILL BE PERMANANTLY CLOSED. bob-verification-kendra.xyz",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.662,
+   "reasons": [
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "bob-verification-kendra.xyz",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "bob-verification-kendra.xyz",
+     "weight": 1.0
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "ACCOUNT IS DEACTIVATED",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "bob-verification-kendra.xyz"
+   ],
+   "score_exact": 0.6615345748932577
+  }
+ },
+ {
+  "id": "test-032",
+  "input": "A/c XX1143 debited Rs 1,150.00 for NACH mandate (LIC premium) on 10-09-26. Avl bal Rs 9,870.00 -Bank of Baroda",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-033",
+  "input": "Sir your son has been detained at the police station. Call this number immediately 98XXXXXX70 to speak to the officer, the matter can be settled today.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "test-034",
+  "input": "Dear Customer, Acct XX5510 is debited with INR 799.00 on 14-Sep-26 for UPI/P2M/zomato. If not you, report at icicibank.com or call 1800-XXX-0012. -ICICI Bank",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "icicibank.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "icicibank.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-035",
+  "input": "Blue Dart: Shipment 00000000219 could not be delivered - consignee not available. Re-attempt scheduled for 17-Sep. Change delivery preference at bluedart.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "Shipment 00000000219 could not be delivered",
+     "weight": 2.0
+    },
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "bluedart.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "bluedart.com"
+   ],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "test-036",
+  "input": "TSSPDCL: Dear Consumer, SC No 1XXXXXXXXX has arrears of Rs 3,420. Supply is liable to be disconnected if not paid by 20-09-26. Pay at tsspdcl.in or at your nearest ERO counter.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "tsspdcl.in",
+     "weight": 2.5
+    }
+   ],
+   "urls": [
+    "tsspdcl.in"
+   ],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "test-037",
+  "input": "Dear Customer, your Kotak debit card has been temporarily suspended due to unusual activity. To unblock, verify your card: kotak-card-unblock.support/verify",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "debit card has been temporarily suspended",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "test-038",
+  "input": "NPTEL: Registration for the Jan 2027 exams is open. Exam fee Rs 1,000. Register only at nptel.ac.in before 30 Sep.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "nptel.ac.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-039",
+  "input": "Dear Swiggy user, refund of Rs 486 for your cancelled order is pending. Kindly share your bank account number, IFSC and debit card details at swiggy-refund-help.site to process.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.393,
+   "reasons": [
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "swiggy-refund-help.site",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "swiggy-refund-help.site"
+   ],
+   "score_exact": 0.3934693402873666
+  }
+ },
+ {
+  "id": "test-040",
+  "input": "Dear Winner, your WhatsApp number has won GBP 850,000 in the Coca-Cola UK Promo 2026. To claim, send your name, address and bank details to the claims desk: cocacola-promo-winners.top",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.393,
+   "reasons": [
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "cocacola-promo-winners.top",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "cocacola-promo-winners.top"
+   ],
+   "score_exact": 0.3934693402873666
+  }
+ },
+ {
+  "id": "test-041",
+  "input": "SBI: Beware of fraudsters! SBI never sends links for KYC update and never asks for OTP, PIN or CVV. Do not download screen-sharing apps at anyone's request. Report cyber fraud on 1930.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "never asks for OTP",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-042",
+  "input": "882046 is your OTP to reset MPIN on Axis Mobile. Axis Bank never asks for OTP over calls or SMS. If not requested by you, call 1800-XXX-5577.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "never asks for OTP",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-043",
+  "input": "Earn Rs 5,000 daily from home with our AI trading app. GUARANTEED double returns in 15 days! Join 20,000+ happy investors: ai-profit-trade.top Limited slots.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.865,
+   "reasons": [
+    {
+     "code": "task_job_offer",
+     "label": "Offers easy paid 'tasks' or part-time work, a common route into deposit scams.",
+     "evidence": "Earn Rs 5,000 daily",
+     "weight": 2.0
+    },
+    {
+     "code": "investment_scheme",
+     "label": "Promises guaranteed, doubled or unrealistic investment returns.",
+     "evidence": "trading app. GUARANTEED",
+     "weight": 1.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "ai-profit-trade.top",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "ai-profit-trade.top",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "ai-profit-trade.top"
+   ],
+   "score_exact": 0.8646647167633873
+  }
+ },
+ {
+  "id": "test-044",
+  "input": "Your Swiggy Instamart order is on the way! Delivery partner is 5 mins away. Please share OTP 2231 at your doorstep.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-045",
+  "input": "Dear Customer, OTP for your online purchase of Rs 3,799.00 at FLIPKART on Kotak Debit Card XX2231 is 674120. Do NOT share OTP with anyone. Kotak never asks for OTP.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "Do NOT share OTP",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-046",
+  "input": "Airtel Thanks: Your 2,500 loyalty points are expiring at midnight! Convert them to cash in your bank a/c now: airtel-points-cash.live",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.895,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "airtel-points-cash.live",
+     "weight": 2.5
+    },
+    {
+     "code": "reward_points",
+     "label": "Says reward points are about to expire, to lure you to a card-details page.",
+     "evidence": "loyalty points are expiring",
+     "weight": 1.75
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "airtel-points-cash.live",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "airtel-points-cash.live",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "airtel-points-cash.live"
+   ],
+   "score_exact": 0.8946007754381357
+  }
+ },
+ {
+  "id": "test-047",
+  "input": "Dear Customer, Rs. 6,742 in reward points is credited to your Axis account. Kindly complete the redemption with your card number, expiry and CVV before 11:59 PM: axis-rp-claim.buzz",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.736,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "axis-rp-claim.buzz",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "axis-rp-claim.buzz",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "axis-rp-claim.buzz"
+   ],
+   "score_exact": 0.7364028618842733
+  }
+ },
+ {
+  "id": "test-048",
+  "input": "Blue Dart: We tried to deliver your package twice. It is now being returned to the sender. Pay Rs 30 redelivery charge to keep it: bluedart-redelivery.top/track",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.885,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "bluedart-redelivery.top/track",
+     "weight": 2.5
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "redelivery charge",
+     "weight": 1.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "bluedart-redelivery.top/track",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "bluedart-redelivery.top/track",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "bluedart-redelivery.top/track"
+   ],
+   "score_exact": 0.8854411560073123
+  }
+ },
+ {
+  "id": "test-049",
+  "input": "Internshala: Your application for the Machine Learning internship has been shortlisted! Complete the assignment before 20 Sep at internshala.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "internshala.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-050",
+  "input": "Task 3 completed ✅ Your earnings: ₹1,480. To withdraw, you need to complete the VIP merchant task by depositing ₹5,000. Profit guaranteed 40%. Contact the receptionist on Telegram.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "task_job_offer",
+     "label": "Offers easy paid 'tasks' or part-time work, a common route into deposit scams.",
+     "evidence": "merchant task",
+     "weight": 2.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "test-051",
+  "input": "Hello from Google Pay support. We noticed a security issue on your account. Please share the 6 digit verification code sent to you within 10 minutes to secure your account.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.713,
+   "reasons": [
+    {
+     "code": "otp_request",
+     "label": "Asks you to share an OTP; no bank, company or officer ever needs your OTP.",
+     "evidence": "share the 6 digit verification code",
+     "weight": 3.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "within 10 minutes",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.7134952031398099
+  }
+ },
+ {
+  "id": "test-052",
+  "input": "Hello, you have been added to 'Premium IPO Allotment Club'. Our institutional account gives guaranteed IPO allotment and 5x returns. Deposit through our app to start. Contact assistant 70XXXXXX93.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-053",
+  "input": "E-challan No. TS0000000001234 of Rs 135 has been issued against vehicle TS09XX1234 for riding without helmet. Pay at echallan.parivahan.gov.in or the nearest MeeSeva centre. -Hyderabad Traffic Police",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "echallan",
+     "label": "Mentions a traffic e-challan; fake challan links are a common phishing lure.",
+     "evidence": "E-challan",
+     "weight": 0.5
+    },
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "echallan.parivahan.gov.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "echallan.parivahan.gov.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-054",
+  "input": "Hello sir, IRCTC refund department here. Your cancelled ticket refund of Rs 2,340 is stuck. Download our refund helper app and enter your net banking details to get the money back today.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-055",
+  "input": "HURRY! Amazon Great Indian Festival: LAST DAY for extra 10% off with SBI cards. Offer ends tonight. Shop now at amazon.in",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "LAST DAY",
+     "weight": 0.75
+    },
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "amazon.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "amazon.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-056",
+  "input": "Passport Seva: Your appointment at PSK Begumpet is on 23-09-2026 at 10:15 AM. Carry original documents. Details at passportindia.gov.in",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "passportindia.gov.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "passportindia.gov.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-057",
+  "input": "Your Zerodha account KYC is verified and your demat account is now active. Log in at kite.zerodha.com to start investing.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "kite.zerodha.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-058",
+  "input": "Your A/c XX8812 credited with Rs.15,000.00 on 16-09-2026 by transfer from 98XXXXXX41@okaxis. Avl Bal Rs.22,480.10 -Canara Bank",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-059",
+  "input": "Your OTP for login to YONO SBI is 118503. It is valid for 3 minutes. Do not share this OTP with anyone. -SBI",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "Do not share this OTP",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-060",
+  "input": "Croma: Only 12 units left! The phone you viewed is back at a special price this weekend. Grab it before it's gone: croma.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "croma.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-061",
+  "input": "Congratulations, your number is shortlisted for a new LPG gas agency dealership in your area. For details and agreement, call 88XXX-XX140.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-062",
+  "input": "Namaste, gas agency se bol rahe hain. Aapki LPG subsidy pending hai. Aapke mobile pe abhi OTP aaya hoga, woh bata dijiye to subsidy activate ho jayegi.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "otp_request",
+     "label": "Asks you to share an OTP; no bank, company or officer ever needs your OTP.",
+     "evidence": "OTP aaya hoga, woh bata dijiye",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "test-063",
+  "input": "DTDC: Your shipment is on hold due to an unpaid address verification fee of Rs 25. Pay now to reschedule delivery: dtdc-reschedule.help/pay",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.6,
+   "reasons": [
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "shipment is on hold",
+     "weight": 2.0
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "verification fee",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6001503456551527
+  }
+ },
+ {
+  "id": "test-064",
+  "input": "Hey, here's the link for tomorrow's standup: meet.google.com/abc-defg-hij",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "meet.google.com/abc-defg-hij",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "meet.google.com/abc-defg-hij"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-065",
+  "input": "Traffic Police: Your vehicle was caught without helmet. Pay the Rs 500 challan on WhatsApp to the officer at 98XXXXXX28 to avoid court summons.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "authority_threat",
+     "label": "Claims to be police, CBI, customs or another agency and threatens legal trouble.",
+     "evidence": "court summons",
+     "weight": 2.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "test-066",
+  "input": "Congrats! Instant loan ₹3,00,000 approved on your Aadhaar. No salary slip, no CIBIL. Pay ₹2,500 processing fee and get the money in 5 minutes. Apply: aadhar-loan-turant.shop",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.941,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "aadhar-loan-turant.shop",
+     "weight": 2.5
+    },
+    {
+     "code": "loan_offer",
+     "label": "Pushes an instant or pre-approved loan, a common lure for fee and data theft.",
+     "evidence": "loan ₹3,00,000 approved on your Aadhaar. No salary slip, no CIBIL",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "aadhar-loan-turant.shop",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "aadhar-loan-turant.shop",
+     "weight": 1.0
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "processing fee",
+     "weight": 0.75
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "turant",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "aadhar-loan-turant.shop"
+   ],
+   "score_exact": 0.9411835283575701
+  }
+ },
+ {
+  "id": "test-067",
+  "input": "Your PM Kisan installment is on hold. Install the PM Kisan Update app to receive 2000 rupees: pmkisan-yojana-update.xyz/PMKisan.apk",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.885,
+   "reasons": [
+    {
+     "code": "apk_download",
+     "label": "Asks you to install an app file (APK) from outside the Play Store.",
+     "evidence": "PMKisan.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_apk",
+     "label": "Link downloads an Android app file (APK) directly.",
+     "evidence": "pmkisan-yojana-update.xyz/PMKisan.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "pmkisan-yojana-update.xyz/PMKisan.apk",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "pmkisan-yojana-update.xyz/PMKisan.apk"
+   ],
+   "score_exact": 0.8854411560073123
+  }
+ },
+ {
+  "id": "test-068",
+  "input": "Rs 1,500 SCHOLARSHIP AMOUNT FROM GOVT. To receive it in your account, accept the payment request sent to your PhonePe and enter your PIN. -Education Dept",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "upi_pin_to_receive",
+     "label": "Asks for a PIN to receive money; receiving money never needs your UPI PIN.",
+     "evidence": "accept the payment request sent to your PhonePe and enter your PIN",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "test-069",
+  "input": "DoT NOTICE: 14 complaints are registered against your mobile number at Andheri police station. All numbers on your Aadhaar will be suspended. Call Department of Telecommunications 90000-00064 now.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.341,
+   "reasons": [
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be suspended",
+     "weight": 1.25
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.34075936979955623
+  }
+ },
+ {
+  "id": "test-070",
+  "input": "ITD: Ur tax refund of Rs 12,340 is pending due to wrong bank details. Update ur account immediately to get the refund: itr-refund-update.help/ITD",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.6,
+   "reasons": [
+    {
+     "code": "tax_refund",
+     "label": "Says an income-tax refund is waiting; the department never asks you to claim it.",
+     "evidence": "tax refund of Rs 12,340 is pending due to wrong bank details",
+     "weight": 2.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6001503456551527
+  }
+ },
+ {
+  "id": "test-071",
+  "input": "Dear Parent, your ward's attendance for Aug 2026 is 68%, below the required 75%. Please meet the class advisor on Saturday. -CSE Dept",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-072",
+  "input": "PNR 6XXXXXXX19: Your train 12XXX is running late by 1 hr 40 min. Expected departure 23:10. Check live status at enquiry.indianrail.gov.in -Indian Railways",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "enquiry.indianrail.gov.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "enquiry.indianrail.gov.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-073",
+  "input": "Customer care: for KYC verification we need to see your phone screen. Install the 'QuickSupport' app and tell me the ID. It is a safe, bank approved process.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "remote_access_app",
+     "label": "Names a screen-sharing app; scammers use these to watch you type your PIN.",
+     "evidence": "Install the 'QuickSupport",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "test-074",
+  "input": "Vi: Your bill of Rs 449 is overdue. Pay now at myvi.in to avoid service interruption.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "myvi.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "myvi.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-075",
+  "input": "Dear Customer, as per RBI guidelines Re-KYC for your account XX7719 is due. You can update it at any Canara Bank branch or through canarabank.com. The bank never asks for OTP or PIN.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "never asks for OTP",
+     "weight": -1.0
+    },
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "canarabank.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "canarabank.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-076",
+  "input": "Your courier from Dubai is seized by Customs because it contains foreign currency and gold. Pay clearance charges Rs 38,500 immediately otherwise a case will be registered under Money Laundering Act. Call Customs Officer 88XXX-XX731",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.757,
+   "reasons": [
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "courier from Dubai is seized",
+     "weight": 2.0
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "clearance charges",
+     "weight": 1.5
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.7574789253643512
+  }
+ },
+ {
+  "id": "test-077",
+  "input": "MSEDCL: Bill of Rs 1,530.00 for consumer no. 1XXXXXXXXX1 for Aug-26. Due date 22-09-26. Pay at wss.mahadiscom.in or through the MSEDCL mobile app. Prompt payment discount Rs 15.",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "wss.mahadiscom.in",
+     "weight": 2.5
+    }
+   ],
+   "urls": [
+    "wss.mahadiscom.in"
+   ],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "test-078",
+  "input": "APSPDCL ALERT: Your power bill of Rs 1,860 shows UNPAID. Disconnection team will visit today. Pay instantly at apspdcl-online-payment.shop",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.84,
+   "reasons": [
+    {
+     "code": "utility_disconnection",
+     "label": "Threatens to cut your electricity or gas; power boards do not warn like this.",
+     "evidence": "Your power bill of Rs 1,860 shows UNPAID. Disconnection",
+     "weight": 3.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "apspdcl-online-payment.shop",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "apspdcl-online-payment.shop",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "apspdcl-online-payment.shop"
+   ],
+   "score_exact": 0.8401202539203061
+  }
+ },
+ {
+  "id": "test-079",
+  "input": "Dear user, 4917 is your OTP to log in to your PhonePe account. Do not share this with anyone. PhonePe will never call you asking for OTP.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "OTP to log in to your PhonePe account. Do not share",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "test-080",
+  "input": "EPFO: Your claim for Rs 25,000 (Form 31) has been settled and will be credited to your bank account XX5510 in 2-3 days. Check status at unifiedportal-mem.epfindia.gov.in",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "unifiedportal-mem.epfindia.gov.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "unifiedportal-mem.epfindia.gov.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-000",
+  "input": "",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-001",
+  "input": "   \n\t  ",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-002",
+  "input": "Your OTP is 482913. Do not share it with anyone. - HDFC Bank",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "OTP is 482913. Do not share",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-003",
+  "input": "Please share the OTP you just received with our executive to stop the charge",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "otp_request",
+     "label": "Asks you to share an OTP; no bank, company or officer ever needs your OTP.",
+     "evidence": "share the OTP",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "extra-004",
+  "input": "Sir kindly send otp fast, refund will be credited",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "otp_request",
+     "label": "Asks you to share an OTP; no bank, company or officer ever needs your OTP.",
+     "evidence": "send otp",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "extra-005",
+  "input": "Never share your OTP, PIN or CVV with anyone. SBI never asks for these.",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "otp_warning",
+     "label": "Carries the standard 'never share your OTP or PIN' warning that genuine senders use.",
+     "evidence": "Never share your OTP",
+     "weight": -1.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-006",
+  "input": "Dear customer your SBI KYC expires today, update now at sbi-kyc-update.top/verify or account will be blocked",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.972,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "sbi-kyc-update.top/verify",
+     "weight": 2.5
+    },
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "KYC expires",
+     "weight": 2.0
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "account will be blocked",
+     "weight": 1.75
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "sbi-kyc-update.top/verify",
+     "weight": 1.5
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be blocked",
+     "weight": 1.25
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "sbi-kyc-update.top/verify",
+     "weight": 1.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "expires today",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "sbi-kyc-update.top/verify"
+   ],
+   "score_exact": 0.9722170660458758
+  }
+ },
+ {
+  "id": "extra-007",
+  "input": "KYC is complete for your account. Thank you for banking with us. - ICICI Bank",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-008",
+  "input": "Enter your UPI PIN to receive Rs 5000 cashback in your account",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "upi_pin_to_receive",
+     "label": "Asks for a PIN to receive money; receiving money never needs your UPI PIN.",
+     "evidence": "Enter your UPI PIN to receive",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "extra-009",
+  "input": "Rs 500 debited from a/c XX1234 on 16-09. Not you? Call 18001234 or visit hdfcbank.com",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "hdfcbank.com",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "hdfcbank.com"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-010",
+  "input": "Sale ends tonight! Up to 70% off. Shop now at https://www.amazon.in/deals",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "https://www.amazon.in/deals",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "https://www.amazon.in/deals"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-011",
+  "input": "Your electricity connection will be disconnected tonight at 9:30 pm. Call officer 98XXXXXX01",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.757,
+   "reasons": [
+    {
+     "code": "utility_disconnection",
+     "label": "Threatens to cut your electricity or gas; power boards do not warn like this.",
+     "evidence": "Your electricity connection will be disconnected",
+     "weight": 3.0
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be disconnected",
+     "weight": 1.25
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.7574789253643512
+  }
+ },
+ {
+  "id": "extra-012",
+  "input": "This is CBI. You are under digital arrest. Do not disconnect the video call.",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.865,
+   "reasons": [
+    {
+     "code": "digital_arrest",
+     "label": "Threatens a 'digital arrest'; no Indian agency arrests anyone over a call.",
+     "evidence": "digital arrest",
+     "weight": 3.5
+    },
+    {
+     "code": "authority_threat",
+     "label": "Claims to be police, CBI, customs or another agency and threatens legal trouble.",
+     "evidence": "CBI. You are under digital arrest",
+     "weight": 2.5
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8646647167633873
+  }
+ },
+ {
+  "id": "extra-013",
+  "input": "Download AnyDesk and share the code so our team can process your refund",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.632,
+   "reasons": [
+    {
+     "code": "remote_access_app",
+     "label": "Names a screen-sharing app; scammers use these to watch you type your PIN.",
+     "evidence": "Download AnyDesk",
+     "weight": 3.0
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6321205588285577
+  }
+ },
+ {
+  "id": "extra-014",
+  "input": "Install the app from http://203.0.113.7/pay.apk to claim your reward",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.931,
+   "reasons": [
+    {
+     "code": "apk_download",
+     "label": "Asks you to install an app file (APK) from outside the Play Store.",
+     "evidence": "Install the app from http://203.0.113.7/pay.apk",
+     "weight": 3.0
+    },
+    {
+     "code": "url_apk",
+     "label": "Link downloads an Android app file (APK) directly.",
+     "evidence": "http://203.0.113.7/pay.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_ip_host",
+     "label": "Link points at a bare IP address instead of a named website.",
+     "evidence": "http://203.0.113.7/pay.apk",
+     "weight": 2.0
+    },
+    {
+     "code": "url_plain_http",
+     "label": "Link is not encrypted (plain http).",
+     "evidence": "http://203.0.113.7/pay.apk",
+     "weight": 0.5
+    }
+   ],
+   "urls": [
+    "http://203.0.113.7/pay.apk"
+   ],
+   "score_exact": 0.9305165487771985
+  }
+ },
+ {
+  "id": "extra-015",
+  "input": "Verify at https://secure-login@sbi.example-bank.xyz/verify now",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.865,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "https://secure-login@sbi.example-bank.xyz/verify",
+     "weight": 2.5
+    },
+    {
+     "code": "url_userinfo",
+     "label": "Link hides its real destination behind an '@' sign.",
+     "evidence": "https://secure-login@sbi.example-bank.xyz/verify",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "https://secure-login@sbi.example-bank.xyz/verify",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "https://secure-login@sbi.example-bank.xyz/verify"
+   ],
+   "score_exact": 0.8646647167633873
+  }
+ },
+ {
+  "id": "extra-016",
+  "input": "Visit http://xn--hdfcbnk-9za.com/login immediately",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.853,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "http://xn--hdfcbnk-9za.com/login",
+     "weight": 2.5
+    },
+    {
+     "code": "url_punycode",
+     "label": "Link uses look-alike (punycode or non-Latin) characters in its domain.",
+     "evidence": "http://xn--hdfcbnk-9za.com/login",
+     "weight": 2.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "immediately",
+     "weight": 0.75
+    },
+    {
+     "code": "url_plain_http",
+     "label": "Link is not encrypted (plain http).",
+     "evidence": "http://xn--hdfcbnk-9za.com/login",
+     "weight": 0.5
+    }
+   ],
+   "urls": [
+    "http://xn--hdfcbnk-9za.com/login"
+   ],
+   "score_exact": 0.8529035326070232
+  }
+ },
+ {
+  "id": "extra-017",
+  "input": "Your parcel is held at customs. Pay Rs 49 at bit.ly/3xYzAbc to release it",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.84,
+   "reasons": [
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "parcel is held",
+     "weight": 2.0
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "Pay Rs 49 at bit.ly/3xYzAbc to release",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "bit.ly/3xYzAbc",
+     "weight": 1.0
+    },
+    {
+     "code": "url_shortener",
+     "label": "Link is shortened, which hides where it really goes.",
+     "evidence": "bit.ly/3xYzAbc",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "bit.ly/3xYzAbc"
+   ],
+   "score_exact": 0.8401202539203061
+  }
+ },
+ {
+  "id": "extra-018",
+  "input": "Earn Rs 3000 daily by liking YouTube videos. Join on Telegram t.me/earnfast123",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.811,
+   "reasons": [
+    {
+     "code": "task_job_offer",
+     "label": "Offers easy paid 'tasks' or part-time work, a common route into deposit scams.",
+     "evidence": "liking YouTube videos. Join on Telegram t.me/earn",
+     "weight": 2.5
+    },
+    {
+     "code": "chat_link_money",
+     "label": "WhatsApp or Telegram link offered together with money or job talk.",
+     "evidence": "t.me/earnfast123",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "t.me/earnfast123",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "t.me/earnfast123"
+   ],
+   "score_exact": 0.8111243971624382
+  }
+ },
+ {
+  "id": "extra-019",
+  "input": "Congratulations! You have won KBC lottery of 25 lakh. Contact WhatsApp wa.me/919000000001",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.84,
+   "reasons": [
+    {
+     "code": "prize_lottery",
+     "label": "Says you won a prize, lottery or lucky draw you never entered.",
+     "evidence": "KBC lottery of 25 lakh",
+     "weight": 3.0
+    },
+    {
+     "code": "chat_link_money",
+     "label": "WhatsApp or Telegram link offered together with money or job talk.",
+     "evidence": "wa.me/919000000001",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "wa.me/919000000001",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "wa.me/919000000001"
+   ],
+   "score_exact": 0.8401202539203061
+  }
+ },
+ {
+  "id": "extra-020",
+  "input": "Income tax refund of Rs 15,490 is pending. Update your account at incometax-refund.click",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.903,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "incometax-refund.click",
+     "weight": 2.5
+    },
+    {
+     "code": "tax_refund",
+     "label": "Says an income-tax refund is waiting; the department never asks you to claim it.",
+     "evidence": "Income tax refund of Rs 15,490 is pending. Update",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "incometax-refund.click",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "incometax-refund.click",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "incometax-refund.click"
+   ],
+   "score_exact": 0.9030280321355949
+  }
+ },
+ {
+  "id": "extra-021",
+  "input": "Aapka khata band ho jayega turant KYC update karein",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.853,
+   "reasons": [
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "KYC update",
+     "weight": 2.0
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "khata band ho jayega",
+     "weight": 1.75
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "band ho jayega",
+     "weight": 1.25
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "turant",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8529035326070232
+  }
+ },
+ {
+  "id": "extra-022",
+  "input": "Pay your traffic e-challan of Rs 500 at echallan-parivahan.live/pay",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.885,
+   "reasons": [
+    {
+     "code": "echallan",
+     "label": "Mentions a traffic e-challan; fake challan links are a common phishing lure.",
+     "evidence": "e-challan",
+     "weight": 2.5
+    },
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "echallan-parivahan.live/pay",
+     "weight": 2.5
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "echallan-parivahan.live/pay",
+     "weight": 1.5
+    }
+   ],
+   "urls": [
+    "echallan-parivahan.live/pay"
+   ],
+   "score_exact": 0.8854411560073123
+  }
+ },
+ {
+  "id": "extra-023",
+  "input": "Check your results on https://www.mgit.ac.in and https://results.jntuh.ac.in",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "https://www.mgit.ac.in",
+    "https://results.jntuh.ac.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-024",
+  "input": "Visit www.a.b.c.d.e.example.com/path?x=1 for more",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.283,
+   "reasons": [
+    {
+     "code": "url_many_subdomains",
+     "label": "Link stacks many subdomains, a trick to push the real domain out of view.",
+     "evidence": "www.a.b.c.d.e.example.com/path?x=1",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "www.a.b.c.d.e.example.com/path?x=1"
+   ],
+   "score_exact": 0.28346868942621073
+  }
+ },
+ {
+  "id": "extra-025",
+  "input": "𝐔𝐫𝐠𝐞𝐧𝐭: your 𝐊𝐘𝐂 has 𝐞𝐱𝐩𝐢𝐫𝐞𝐝, update at sbi-help.top",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.924,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "sbi-help.top",
+     "weight": 2.5
+    },
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "KYC has expired",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "sbi-help.top",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "sbi-help.top",
+     "weight": 1.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "Urgent",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "sbi-help.top"
+   ],
+   "score_exact": 0.9244781554912263
+  }
+ },
+ {
+  "id": "extra-026",
+  "input": "O​T​P share karo abhi, account block ho jayega",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.865,
+   "reasons": [
+    {
+     "code": "otp_request",
+     "label": "Asks you to share an OTP; no bank, company or officer ever needs your OTP.",
+     "evidence": "OTP share",
+     "weight": 3.0
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "account block ho jayega",
+     "weight": 1.75
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "block ho jayega",
+     "weight": 1.25
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8646647167633873
+  }
+ },
+ {
+  "id": "extra-027",
+  "input": "İSTANBUL ŞUBESİ: hesabınız bloke edildi",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-028",
+  "input": "URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT URGENT ",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.221,
+   "reasons": [
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "URGENT",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.22119921692859512
+  }
+ },
+ {
+  "id": "extra-029",
+  "input": "Hey, did you pay the electricity bill? Mom said the OTP came on her phone",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-030",
+  "input": "Your pre-approved loan of Rs 5,00,000 is ready. Pay processing fee of Rs 999 to get it",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.528,
+   "reasons": [
+    {
+     "code": "loan_offer",
+     "label": "Pushes an instant or pre-approved loan, a common lure for fee and data theft.",
+     "evidence": "pre-approved loan",
+     "weight": 1.5
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "processing fee",
+     "weight": 0.75
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.5276334472589853
+  }
+ },
+ {
+  "id": "extra-031",
+  "input": "Invest Rs 10,000 and get guaranteed double returns in 7 days. Crypto trading",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-032",
+  "input": "Your credit card reward points worth Rs 7,850 expire today. Redeem at hdfc-rewardz.top",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.918,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "hdfc-rewardz.top",
+     "weight": 2.5
+    },
+    {
+     "code": "reward_points",
+     "label": "Says reward points are about to expire, to lure you to a card-details page.",
+     "evidence": "reward points worth Rs",
+     "weight": 1.75
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "hdfc-rewardz.top",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "hdfc-rewardz.top",
+     "weight": 1.0
+    },
+    {
+     "code": "urgency",
+     "label": "Pushes you to act immediately, a pressure tactic.",
+     "evidence": "expire today",
+     "weight": 0.75
+    }
+   ],
+   "urls": [
+    "hdfc-rewardz.top"
+   ],
+   "score_exact": 0.9179150013761012
+  }
+ },
+ {
+  "id": "extra-033",
+  "input": "Your SIM will be deactivated in 2 hours by TRAI. Press 9 to speak to an officer",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.662,
+   "reasons": [
+    {
+     "code": "sim_deactivation",
+     "label": "Says your SIM or mobile number will be blocked; a classic pretext to get a call.",
+     "evidence": "SIM will be deactivated",
+     "weight": 2.0
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be deactivated",
+     "weight": 1.25
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.6615345748932577
+  }
+ },
+ {
+  "id": "extra-034",
+  "input": "Your PNR 4512345678 is confirmed. Coach B2 Seat 34. irctc.co.in",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [
+    {
+     "code": "official_link",
+     "label": "Links only to an official domain of a bank, company or the government.",
+     "evidence": "irctc.co.in",
+     "weight": -1.25
+    }
+   ],
+   "urls": [
+    "irctc.co.in"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-035",
+  "input": "Dear FedEx customer, your address is incomplete. Update at fedex-in.icu/track",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.903,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "fedex-in.icu/track",
+     "weight": 2.5
+    },
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "address is incomplete",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "fedex-in.icu/track",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "fedex-in.icu/track",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "fedex-in.icu/track"
+   ],
+   "score_exact": 0.9030280321355949
+  }
+ },
+ {
+  "id": "extra-036",
+  "input": "http://127.0.0.1:8000/ is where the dev server runs",
+  "expected": {
+   "verdict": "suspicious",
+   "score": 0.565,
+   "reasons": [
+    {
+     "code": "url_ip_host",
+     "label": "Link points at a bare IP address instead of a named website.",
+     "evidence": "http://127.0.0.1:8000/",
+     "weight": 2.0
+    },
+    {
+     "code": "url_plain_http",
+     "label": "Link is not encrypted (plain http).",
+     "evidence": "http://127.0.0.1:8000/",
+     "weight": 0.5
+    }
+   ],
+   "urls": [
+    "http://127.0.0.1:8000/"
+   ],
+   "score_exact": 0.5654017914929218
+  }
+ },
+ {
+  "id": "extra-037",
+  "input": "Check https://example.com/a(b)c and (https://example.org/x).",
+  "expected": {
+   "verdict": "no_signals",
+   "score": 0.0,
+   "reasons": [],
+   "urls": [
+    "https://example.com/a(b)c",
+    "https://example.org/x"
+   ],
+   "score_exact": 0.0
+  }
+ },
+ {
+  "id": "extra-038",
+  "input": "İ KYC update now or your account will be blocked today",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.811,
+   "reasons": [
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "kyc update",
+     "weight": 2.0
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "account will be blocked",
+     "weight": 1.75
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be blocked",
+     "weight": 1.25
+    }
+   ],
+   "urls": [],
+   "score_exact": 0.8111243971624382
+  }
+ },
+ {
+  "id": "extra-039",
+  "input": "Download the refund app from http://[2001:db8::1]/refund.apk and enter your UPI PIN",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.978,
+   "reasons": [
+    {
+     "code": "upi_pin_to_receive",
+     "label": "Asks for a PIN to receive money; receiving money never needs your UPI PIN.",
+     "evidence": "refund app from http://[2001:db8::1]/refund.apk and enter your UPI PIN",
+     "weight": 3.0
+    },
+    {
+     "code": "apk_download",
+     "label": "Asks you to install an app file (APK) from outside the Play Store.",
+     "evidence": "refund.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_apk",
+     "label": "Link downloads an Android app file (APK) directly.",
+     "evidence": "http://[2001:db8::1]/refund.apk",
+     "weight": 2.5
+    },
+    {
+     "code": "url_ip_host",
+     "label": "Link points at a bare IP address instead of a named website.",
+     "evidence": "http://[2001:db8::1]/refund.apk",
+     "weight": 2.0
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "http://[2001:db8::1]/refund.apk",
+     "weight": 1.0
+    },
+    {
+     "code": "url_plain_http",
+     "label": "Link is not encrypted (plain http).",
+     "evidence": "http://[2001:db8::1]/refund.apk",
+     "weight": 0.5
+    }
+   ],
+   "urls": [
+    "http://[2001:db8::1]/refund.apk"
+   ],
+   "score_exact": 0.9783626292805069
+  }
+ },
+ {
+  "id": "extra-040",
+  "input": "Visit SBİ-kyc-update.top to avoid your account being blocked",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.95,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "SBİ-kyc-update.top",
+     "weight": 2.5
+    },
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "kyc-update",
+     "weight": 2.0
+    },
+    {
+     "code": "url_punycode",
+     "label": "Link uses look-alike (punycode or non-Latin) characters in its domain.",
+     "evidence": "SBİ-kyc-update.top",
+     "weight": 2.0
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "SBİ-kyc-update.top",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "SBİ-kyc-update.top",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "SBİ-kyc-update.top"
+   ],
+   "score_exact": 0.950212931632136
+  }
+ },
+ {
+  "id": "extra-041",
+  "input": "Pay ₹४९ at bit.ly/xyz to release your parcel held at customs",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.84,
+   "reasons": [
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "parcel held",
+     "weight": 2.0
+    },
+    {
+     "code": "advance_fee",
+     "label": "Asks for a small fee up front to release a parcel, loan, job or prize.",
+     "evidence": "Pay ₹४९ at bit.ly/xyz to release",
+     "weight": 1.5
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "bit.ly/xyz",
+     "weight": 1.0
+    },
+    {
+     "code": "url_shortener",
+     "label": "Link is shortened, which hides where it really goes.",
+     "evidence": "bit.ly/xyz",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "bit.ly/xyz"
+   ],
+   "score_exact": 0.8401202539203061
+  }
+ },
+ {
+  "id": "extra-042",
+  "input": "😀😀 Your account will be blocked 😀 update KYC at https://sbi-kyc-update-portal-for-customers.top/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 😀",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.964,
+   "reasons": [
+    {
+     "code": "url_brand_impersonation",
+     "label": "Link uses a bank or brand name on a domain that brand does not own.",
+     "evidence": "https://sbi-kyc-update-portal-for-customers.top/aaaaaaaaaaaaaaaaaaaaaaaaaaaaa...",
+     "weight": 2.5
+    },
+    {
+     "code": "kyc_update",
+     "label": "Asks you to update or verify KYC, PAN or Aadhaar through a message.",
+     "evidence": "KYC at https://sbi-kyc-update",
+     "weight": 2.0
+    },
+    {
+     "code": "account_blocked",
+     "label": "Claims your bank account, card or UPI will be blocked unless you act.",
+     "evidence": "account will be blocked",
+     "weight": 1.75
+    },
+    {
+     "code": "url_risky_tld",
+     "label": "Link uses a cheap domain ending that is common in phishing.",
+     "evidence": "https://sbi-kyc-update-portal-for-customers.top/aaaaaaaaaaaaaaaaaaaaaaaaaaaaa...",
+     "weight": 1.5
+    },
+    {
+     "code": "threat_of_loss",
+     "label": "Threatens a loss or penalty to rush you.",
+     "evidence": "will be blocked",
+     "weight": 1.25
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "https://sbi-kyc-update-portal-for-customers.top/aaaaaaaaaaaaaaaaaaaaaaaaaaaaa...",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "https://sbi-kyc-update-portal-for-customers.top/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   ],
+   "score_exact": 0.9643260066527476
+  }
+ },
+ {
+  "id": "extra-043",
+  "input": "Your parcel is held, pay at bit.ly/x1",
+  "expected": {
+   "verdict": "scam",
+   "score": 0.736,
+   "reasons": [
+    {
+     "code": "parcel_held",
+     "label": "Says a parcel is held or undeliverable, usually to collect a fee or card details.",
+     "evidence": "parcel is held",
+     "weight": 2.0
+    },
+    {
+     "code": "link_with_request",
+     "label": "Asks for something and gives a link that is not an official site.",
+     "evidence": "bit.ly/x1",
+     "weight": 1.0
+    },
+    {
+     "code": "url_shortener",
+     "label": "Link is shortened, which hides where it really goes.",
+     "evidence": "bit.ly/x1",
+     "weight": 1.0
+    }
+   ],
+   "urls": [
+    "bit.ly/x1"
+   ],
+   "score_exact": 0.7364028618842733
+  }
+ }
+]

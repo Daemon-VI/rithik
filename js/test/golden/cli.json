@@ -1,0 +1,114 @@
+[
+ {
+  "argv": [],
+  "exit": 0,
+  "stdout": "+----------------------------------------------------------------------------+\n|                                                                            |\n|  Rithik Krishna T                                                          |\n|  AI/ML, Android and security. I build complete systems and measure them.   |\n|                                                                            |\n|  Education    B.Tech CSE (Data Science), MGIT Hyderabad                    |\n|               BS Data Science & Applications, IIT Madras                   |\n|               Both graduating May 2027                                     |\n|  Experience   AI/ML Intern, HCLTech, Sep 2025 - Jan 2026                   |\n|                                                                            |\n|  GitHub       https://github.com/Daemon-VI                                 |\n|  LinkedIn     https://www.linkedin.com/in/rithikkrishnat/                  |\n|  Email        trithikkrishna@gmail.com                                     |\n|                                                                            |\n|  Public projects                                                           |\n|  AegisToolkit     31-tool Android security toolkit, no root required       |\n|                   https://github.com/Daemon-VI/AegisToolkit                |\n|  Cascade          Drag-and-drop Android automation with 154 actions        |\n|                   https://github.com/Daemon-VI/Cascade                     |\n|  optivision-rag   Visual-token compression for VLM document retrieval:     |\n|                   113.5x less storage per page, 86.7% of baseline nDCG@5   |\n|                   https://github.com/Daemon-VI/optivision-rag              |\n|  carpool          Shared-commute cost settlement for iOS, Android and web  |\n|                   https://github.com/Daemon-VI/carpool                     |\n|  darkwatch        Dark web exposure monitor for leak sites and breaches    |\n|                   https://github.com/Daemon-VI/darkwatch                   |\n|  rithik           This card, plus an offline Indian scam-message checker   |\n|                   https://github.com/Daemon-VI/rithik                      |\n|                                                                            |\n+----------------------------------------------------------------------------+\nTry: rithik scam \"<message or link>\"\n"
+ },
+ {
+  "argv": [
+   "card"
+  ],
+  "exit": 0,
+  "stdout": "+----------------------------------------------------------------------------+\n|                                                                            |\n|  Rithik Krishna T                                                          |\n|  AI/ML, Android and security. I build complete systems and measure them.   |\n|                                                                            |\n|  Education    B.Tech CSE (Data Science), MGIT Hyderabad                    |\n|               BS Data Science & Applications, IIT Madras                   |\n|               Both graduating May 2027                                     |\n|  Experience   AI/ML Intern, HCLTech, Sep 2025 - Jan 2026                   |\n|                                                                            |\n|  GitHub       https://github.com/Daemon-VI                                 |\n|  LinkedIn     https://www.linkedin.com/in/rithikkrishnat/                  |\n|  Email        trithikkrishna@gmail.com                                     |\n|                                                                            |\n|  Public projects                                                           |\n|  AegisToolkit     31-tool Android security toolkit, no root required       |\n|                   https://github.com/Daemon-VI/AegisToolkit                |\n|  Cascade          Drag-and-drop Android automation with 154 actions        |\n|                   https://github.com/Daemon-VI/Cascade                     |\n|  optivision-rag   Visual-token compression for VLM document retrieval:     |\n|                   113.5x less storage per page, 86.7% of baseline nDCG@5   |\n|                   https://github.com/Daemon-VI/optivision-rag              |\n|  carpool          Shared-commute cost settlement for iOS, Android and web  |\n|                   https://github.com/Daemon-VI/carpool                     |\n|  darkwatch        Dark web exposure monitor for leak sites and breaches    |\n|                   https://github.com/Daemon-VI/darkwatch                   |\n|  rithik           This card, plus an offline Indian scam-message checker   |\n|                   https://github.com/Daemon-VI/rithik                      |\n|                                                                            |\n+----------------------------------------------------------------------------+\nTry: rithik scam \"<message or link>\"\n"
+ },
+ {
+  "argv": [
+   "card",
+   "--json"
+  ],
+  "exit": 0,
+  "stdout": "{\n  \"name\": \"Rithik Krishna T\",\n  \"tagline\": \"AI/ML, Android and security. I build complete systems and measure them.\",\n  \"education\": [\n    {\n      \"degree\": \"B.Tech CSE (Data Science)\",\n      \"institution\": \"MGIT Hyderabad\",\n      \"graduation\": \"May 2027\"\n    },\n    {\n      \"degree\": \"BS Data Science & Applications\",\n      \"institution\": \"IIT Madras\",\n      \"graduation\": \"May 2027\"\n    }\n  ],\n  \"experience\": [\n    {\n      \"role\": \"AI/ML Intern\",\n      \"organisation\": \"HCLTech\",\n      \"period\": \"Sep 2025 - Jan 2026\"\n    }\n  ],\n  \"links\": {\n    \"github\": \"https://github.com/Daemon-VI\",\n    \"linkedin\": \"https://www.linkedin.com/in/rithikkrishnat/\",\n    \"email\": \"trithikkrishna@gmail.com\"\n  },\n  \"projects\": [\n    {\n      \"name\": \"AegisToolkit\",\n      \"summary\": \"31-tool Android security toolkit, no root required\",\n      \"url\": \"https://github.com/Daemon-VI/AegisToolkit\"\n    },\n    {\n      \"name\": \"Cascade\",\n      \"summary\": \"Drag-and-drop Android automation with 154 actions\",\n      \"url\": \"https://github.com/Daemon-VI/Cascade\"\n    },\n    {\n      \"name\": \"optivision-rag\",\n      \"summary\": \"Visual-token compression for VLM document retrieval: 113.5x less storage per page, 86.7% of baseline nDCG@5\",\n      \"url\": \"https://github.com/Daemon-VI/optivision-rag\"\n    },\n    {\n      \"name\": \"carpool\",\n      \"summary\": \"Shared-commute cost settlement for iOS, Android and web\",\n      \"url\": \"https://github.com/Daemon-VI/carpool\"\n    },\n    {\n      \"name\": \"darkwatch\",\n      \"summary\": \"Dark web exposure monitor for leak sites and breaches\",\n      \"url\": \"https://github.com/Daemon-VI/darkwatch\"\n    },\n    {\n      \"name\": \"rithik\",\n      \"summary\": \"This card, plus an offline Indian scam-message checker\",\n      \"url\": \"https://github.com/Daemon-VI/rithik\"\n    }\n  ]\n}\n"
+ },
+ {
+  "argv": [
+   "--no-color"
+  ],
+  "exit": 0,
+  "stdout": "+----------------------------------------------------------------------------+\n|                                                                            |\n|  Rithik Krishna T                                                          |\n|  AI/ML, Android and security. I build complete systems and measure them.   |\n|                                                                            |\n|  Education    B.Tech CSE (Data Science), MGIT Hyderabad                    |\n|               BS Data Science & Applications, IIT Madras                   |\n|               Both graduating May 2027                                     |\n|  Experience   AI/ML Intern, HCLTech, Sep 2025 - Jan 2026                   |\n|                                                                            |\n|  GitHub       https://github.com/Daemon-VI                                 |\n|  LinkedIn     https://www.linkedin.com/in/rithikkrishnat/                  |\n|  Email        trithikkrishna@gmail.com                                     |\n|                                                                            |\n|  Public projects                                                           |\n|  AegisToolkit     31-tool Android security toolkit, no root required       |\n|                   https://github.com/Daemon-VI/AegisToolkit                |\n|  Cascade          Drag-and-drop Android automation with 154 actions        |\n|                   https://github.com/Daemon-VI/Cascade                     |\n|  optivision-rag   Visual-token compression for VLM document retrieval:     |\n|                   113.5x less storage per page, 86.7% of baseline nDCG@5   |\n|                   https://github.com/Daemon-VI/optivision-rag              |\n|  carpool          Shared-commute cost settlement for iOS, Android and web  |\n|                   https://github.com/Daemon-VI/carpool                     |\n|  darkwatch        Dark web exposure monitor for leak sites and breaches    |\n|                   https://github.com/Daemon-VI/darkwatch                   |\n|  rithik           This card, plus an offline Indian scam-message checker   |\n|                   https://github.com/Daemon-VI/rithik                      |\n|                                                                            |\n+----------------------------------------------------------------------------+\nTry: rithik scam \"<message or link>\"\n"
+ },
+ {
+  "argv": [
+   "--version"
+  ],
+  "exit": 0,
+  "stdout": "rithik 0.1.0\n"
+ },
+ {
+  "argv": [
+   "scam",
+   "--no-color",
+   "Dear customer your SBI KYC expires today, update now at sbi-kyc-update.top/verify or account will be blocked"
+  ],
+  "exit": 0,
+  "stdout": "LIKELY SCAM  (score 0.97 of 1.00)\n\nWhy\n  - Link uses a bank or brand name on a domain that brand does not own.:\n    \"sbi-kyc-update[.]top/verify\"\n  - Asks you to update or verify KYC, PAN or Aadhaar through a message.: \"KYC\n    expires\"\n  - Claims your bank account, card or UPI will be blocked unless you act.:\n    \"account will be blocked\"\n  - Link uses a cheap domain ending that is common in phishing.:\n    \"sbi-kyc-update[.]top/verify\"\n  - Threatens a loss or penalty to rush you.: \"will be blocked\"\n  - Asks for something and gives a link that is not an official site.:\n    \"sbi-kyc-update[.]top/verify\"\n  - Pushes you to act immediately, a pressure tactic.: \"expires today\"\n\nLinks in the message\n  - sbi-kyc-update[.]top/verify\n  (dots shown as [.] so the links cannot be opened by accident)\n\nWhat to do\n  - Do not click the links, call the numbers or install anything the message\n    asks for.\n  - Never share an OTP, UPI PIN or card details, and remember that you never\n    need your UPI PIN to receive money.\n  - Verify through your bank's official app, or the number printed on your\n    card, not a number from the message.\n  - If money was taken, call 1930 at once or report it at\n    https://cybercrime.gov.in\n  - Report the fraud SMS or call through Chakshu at\n    https://sancharsaathi.gov.in\n"
+ },
+ {
+  "argv": [
+   "scam",
+   "--no-color",
+   "Your OTP is 482913. Do not share it with anyone. - HDFC Bank"
+  ],
+  "exit": 0,
+  "stdout": "NO KNOWN SCAM SIGNALS  (score 0.00 of 1.00)\n\nWhy\n  - Carries the standard 'never share your OTP or PIN' warning that genuine\n    senders use.: \"OTP is 482913. Do not share\" (lowers the score)\n\nNone of the scam patterns this checker knows matched. That is not a guarantee\nthat the message is genuine: new scams appear all the time. Before you pay, or\nshare an OTP or PIN, verify through the official app or website.\n"
+ },
+ {
+  "argv": [
+   "scam",
+   "--no-color",
+   "Sale ends tonight! Up to 70% off. Shop now at https://www.amazon.in/deals"
+  ],
+  "exit": 0,
+  "stdout": "NO KNOWN SCAM SIGNALS  (score 0.00 of 1.00)\n\nWhy\n  - Links only to an official domain of a bank, company or the government.:\n    \"hxxps://www[.]amazon[.]in/deals\" (lowers the score)\n\nLinks in the message\n  - hxxps://www[.]amazon[.]in/deals\n  (dots shown as [.] so the links cannot be opened by accident)\n\nNone of the scam patterns this checker knows matched. That is not a guarantee\nthat the message is genuine: new scams appear all the time. Before you pay, or\nshare an OTP or PIN, verify through the official app or website.\n"
+ },
+ {
+  "argv": [
+   "scam",
+   "--no-color",
+   "Enter your UPI PIN to receive Rs 5000 cashback in your account"
+  ],
+  "exit": 0,
+  "stdout": "LIKELY SCAM  (score 0.63 of 1.00)\n\nWhy\n  - Asks for a PIN to receive money; receiving money never needs your UPI\n    PIN.: \"Enter your UPI PIN to receive\"\n\nWhat to do\n  - Do not click the links, call the numbers or install anything the message\n    asks for.\n  - Never share an OTP, UPI PIN or card details, and remember that you never\n    need your UPI PIN to receive money.\n  - Verify through your bank's official app, or the number printed on your\n    card, not a number from the message.\n  - If money was taken, call 1930 at once or report it at\n    https://cybercrime.gov.in\n  - Report the fraud SMS or call through Chakshu at\n    https://sancharsaathi.gov.in\n"
+ },
+ {
+  "argv": [
+   "scam",
+   "--no-color",
+   "Earn Rs 3000 daily by liking YouTube videos. Join on Telegram t.me/earnfast123"
+  ],
+  "exit": 0,
+  "stdout": "LIKELY SCAM  (score 0.81 of 1.00)\n\nWhy\n  - Offers easy paid 'tasks' or part-time work, a common route into deposit\n    scams.: \"liking YouTube videos. Join on Telegram t.me/earn\"\n  - WhatsApp or Telegram link offered together with money or job talk.:\n    \"t[.]me/earnfast123\"\n  - Asks for something and gives a link that is not an official site.:\n    \"t[.]me/earnfast123\"\n\nLinks in the message\n  - t[.]me/earnfast123\n  (dots shown as [.] so the links cannot be opened by accident)\n\nWhat to do\n  - Do not click the links, call the numbers or install anything the message\n    asks for.\n  - Never share an OTP, UPI PIN or card details, and remember that you never\n    need your UPI PIN to receive money.\n  - Verify through your bank's official app, or the number printed on your\n    card, not a number from the message.\n  - If money was taken, call 1930 at once or report it at\n    https://cybercrime.gov.in\n  - Report the fraud SMS or call through Chakshu at\n    https://sancharsaathi.gov.in\n"
+ },
+ {
+  "argv": [
+   "scam",
+   "--no-color",
+   "Your",
+   "parcel",
+   "is",
+   "held,",
+   "pay",
+   "at",
+   "bit.ly/x1"
+  ],
+  "exit": 0,
+  "stdout": "LIKELY SCAM  (score 0.74 of 1.00)\n\nWhy\n  - Says a parcel is held or undeliverable, usually to collect a fee or card\n    details.: \"parcel is held\"\n  - Asks for something and gives a link that is not an official site.:\n    \"bit[.]ly/x1\"\n  - Link is shortened, which hides where it really goes.: \"bit[.]ly/x1\"\n\nLinks in the message\n  - bit[.]ly/x1\n  (dots shown as [.] so the links cannot be opened by accident)\n\nWhat to do\n  - Do not click the links, call the numbers or install anything the message\n    asks for.\n  - Never share an OTP, UPI PIN or card details, and remember that you never\n    need your UPI PIN to receive money.\n  - Verify through your bank's official app, or the number printed on your\n    card, not a number from the message.\n  - If money was taken, call 1930 at once or report it at\n    https://cybercrime.gov.in\n  - Report the fraud SMS or call through Chakshu at\n    https://sancharsaathi.gov.in\n"
+ },
+ {
+  "argv": [
+   "scam",
+   "--json",
+   "Download AnyDesk and share the code so our team can process your refund"
+  ],
+  "exit": 0,
+  "stdout": "{\n  \"verdict\": \"scam\",\n  \"score\": 0.632,\n  \"reasons\": [\n    {\n      \"code\": \"remote_access_app\",\n      \"label\": \"Names a screen-sharing app; scammers use these to watch you type your PIN.\",\n      \"evidence\": \"Download AnyDesk\",\n      \"weight\": 3.0\n    }\n  ],\n  \"urls\": []\n}\n"
+ },
+ {
+  "argv": [
+   "scam",
+   "--json",
+   "Visit http://xn--hdfcbnk-9za.com/login immediately"
+  ],
+  "exit": 0,
+  "stdout": "{\n  \"verdict\": \"scam\",\n  \"score\": 0.853,\n  \"reasons\": [\n    {\n      \"code\": \"url_brand_impersonation\",\n      \"label\": \"Link uses a bank or brand name on a domain that brand does not own.\",\n      \"evidence\": \"http://xn--hdfcbnk-9za.com/login\",\n      \"weight\": 2.5\n    },\n    {\n      \"code\": \"url_punycode\",\n      \"label\": \"Link uses look-alike (punycode or non-Latin) characters in its domain.\",\n      \"evidence\": \"http://xn--hdfcbnk-9za.com/login\",\n      \"weight\": 2.0\n    },\n    {\n      \"code\": \"urgency\",\n      \"label\": \"Pushes you to act immediately, a pressure tactic.\",\n      \"evidence\": \"immediately\",\n      \"weight\": 0.75\n    },\n    {\n      \"code\": \"url_plain_http\",\n      \"label\": \"Link is not encrypted (plain http).\",\n      \"evidence\": \"http://xn--hdfcbnk-9za.com/login\",\n      \"weight\": 0.5\n    }\n  ],\n  \"urls\": [\n    \"http://xn--hdfcbnk-9za.com/login\"\n  ]\n}\n"
+ }
+]

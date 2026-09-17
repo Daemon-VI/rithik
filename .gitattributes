@@ -1,0 +1,4 @@
+# The npm launcher starts with a shebang; a CRLF checkout would make it "node" on POSIX.
+js/bin/* text eol=lf
+# Golden files are compared byte for byte, so git must not rewrite their line endings.
+js/test/golden/* text eol=lf
