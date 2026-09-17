@@ -68,7 +68,11 @@ export function renderReport(report, color = false) {
     lines.push(term.paint("Why", term.BOLD, color));
     for (const reason of report.reasons) {
       let text = reason.label;
-      if (reason.evidence) text += `: "${shorten(defangText(reason.evidence, urls))}"`;
+      if (reason.evidence) {
+        // Mirrors cli.py: labels are full sentences, and the evidence follows a colon.
+        if (text.endsWith(".")) text = text.slice(0, -1);
+        text += `: "${shorten(defangText(reason.evidence, urls))}"`;
+      }
       if (reason.weight < 0) text += " (lowers the score)";
       lines.push(...bullet(text));
     }

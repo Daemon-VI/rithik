@@ -95,6 +95,8 @@ def render_report(report: Report, color: bool = False) -> str:
         for reason in report.reasons:
             text = reason.label
             if reason.evidence:
+                # Labels are full sentences; the evidence follows a colon, so the full stop goes.
+                text = text.removesuffix(".")
                 text += f': "{_shorten(_defang_text(reason.evidence, report.urls))}"'
             if reason.weight < 0:
                 text += " (lowers the score)"

@@ -491,7 +491,7 @@ describe("Python formatting helpers (expected values from CPython 3.12)", () => 
     const why = renderReport(report).split("\n").slice(3, 6).join("\n");
     assert.equal(
       why,
-      '  - L.: "Go to hxxpS://x[.]y[.]z/a.b?c.d, www[.]q[.]r or sbi-kyc[.]top/login;\n' +
+      '  - L: "Go to hxxpS://x[.]y[.]z/a.b?c.d, www[.]q[.]r or sbi-kyc[.]top/login;\n' +
         '    \u00e9www.no.pe \u212aTP://k.l"\n',
     );
   });

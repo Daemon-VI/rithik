@@ -60,16 +60,22 @@ The quotes matter, because they keep your shell from interpreting the message.
 rithik scam "Dear customer, your SBI account will be blocked today. Update KYC now: https://sbi-kyc-help-desk.top/update"
 ```
 
-The output looks like this. Which reasons appear depends on what the rules find.
+The output (real, from v0.1.0):
 
 ```text
-LIKELY SCAM  (score 0.94 of 1.00)
+LIKELY SCAM  (score 0.96 of 1.00)
 
 Why
-  - Threatens to block your account: "account will be blocked"
-  - Asks you to update KYC through a message: "Update KYC"
-  - Pushes you to act immediately: "today"
-  - The link mentions SBI but is not an official SBI domain:
+  - Link uses a bank or brand name on a domain that brand does not own:
+    "hxxps://sbi-kyc-help-desk[.]top/update"
+  - Asks you to update or verify KYC, PAN or Aadhaar through a message: "KYC
+    now: hxxps://sbi-kyc-help-desk[.]top/update"
+  - Claims your bank account, card or UPI will be blocked unless you act:
+    "account will be blocked"
+  - Link uses a cheap domain ending that is common in phishing:
+    "hxxps://sbi-kyc-help-desk[.]top/update"
+  - Threatens a loss or penalty to rush you: "will be blocked"
+  - Asks for something and gives a link that is not an official site:
     "hxxps://sbi-kyc-help-desk[.]top/update"
 
 Links in the message
@@ -108,18 +114,19 @@ Get-Clipboard | rithik scam -                # PowerShell
 rithik scam - < message.txt
 ```
 
-With `--json`, the report is printed as JSON. In JSON, links appear as the message wrote them:
+With `--json`, the report is printed as JSON, and links appear as the message wrote them.
+This is the same check, trimmed to its first reason:
 
 ```json
 {
   "verdict": "scam",
-  "score": 0.94,
+  "score": 0.964,
   "reasons": [
     {
-      "code": "kyc_update",
-      "label": "Asks you to update KYC through a message",
-      "evidence": "Update KYC",
-      "weight": 0.3
+      "code": "url_brand_impersonation",
+      "label": "Link uses a bank or brand name on a domain that brand does not own.",
+      "evidence": "https://sbi-kyc-help-desk.top/update",
+      "weight": 2.5
     }
   ],
   "urls": [
