@@ -23,7 +23,8 @@ Indian scam patterns.
 | Eval: held-out test, lenient point | precision 0.882, recall 0.750 (n=80, synthetic, untuned, scored once) |
 | Lint (`ruff check`, `ruff format --check`) | VERIFIED clean, with rules pinned in pyproject |
 | GitHub repo Daemon-VI/rithik | public |
-| `npx github:Daemon-VI/rithik`, `pipx install git+...` | work from GitHub (checked after each push) |
+| `npx github:Daemon-VI/rithik` | VERIFIED 2026-09-17 from a clean folder: version, card and scam report (about 9 s cold). npm 12 needs `--allow-git=root`, because its default is `allow-git=none` |
+| `pipx install git+https://github.com/Daemon-VI/rithik` | VERIFIED 2026-09-16 in a throwaway venv |
 | npm (`npx rithik`) | NOT published. First publish is manual (`npm login`, `npm publish`); see docs/RELEASING.md |
 | PyPI (`pipx install rithik`) | NOT published. Needs the pending-publisher setup in docs/RELEASING.md |
 | `.github/workflows/` (CI + publish) | written but NOT pushed: gh's token lacks the `workflow` scope. Fix with `gh auth refresh -h github.com -s workflow` |

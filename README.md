@@ -16,6 +16,10 @@ npx github:Daemon-VI/rithik         # works now, straight from GitHub
 npm install -g rithik               # or keep the `rithik` command around
 ```
 
+npm 12 refuses packages fetched from git unless you allow it, so on npm 12 the GitHub form is
+`npx --allow-git=root github:Daemon-VI/rithik`. The npm 10 and 11 releases that ship with
+Node 18 to 24 need no flag.
+
 With Python 3.9 or newer:
 
 ```sh
