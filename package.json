@@ -1,6 +1,6 @@
 {
   "name": "rithik",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Rithik Krishna T's terminal card, plus an offline checker for Indian scam SMS, WhatsApp messages and links.",
   "type": "module",
   "bin": {

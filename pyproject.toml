@@ -1,6 +1,6 @@
 [project]
 name = "rithik"
-version = "0.1.0"
+version = "0.1.1"
 description = "Rithik Krishna T's command-line card, plus an offline checker for Indian scam messages and links."
 readme = "README.md"
 requires-python = ">=3.9"
