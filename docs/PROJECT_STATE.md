@@ -25,9 +25,9 @@ Indian scam patterns.
 | GitHub repo Daemon-VI/rithik | public |
 | `npx github:Daemon-VI/rithik` | VERIFIED 2026-09-17 from a clean folder: version, card and scam report (about 9 s cold). npm 12 needs `--allow-git=root`, because its default is `allow-git=none` |
 | `pipx install git+https://github.com/Daemon-VI/rithik` | VERIFIED 2026-09-16 in a throwaway venv |
-| npm (`npx rithik`) | VERIFIED: 0.1.0 published by hand 2026-09-19 (maintainer rithikkrishnat); `npx rithik@latest` runs from a clean folder. 0.1.1 FAILED in the publish workflow with E404 on PUT: the trusted publisher is not configured on npmjs.com yet. Rerun the failed job once it is |
+| npm (`npx rithik`) | VERIFIED: 0.1.0 published by hand 2026-09-19. 0.1.1 published by the publish workflow through trusted publishing with signed provenance (run 35426170459, npm job rerun after the trusted publisher was configured); `npx rithik@0.1.1` runs from a clean folder |
 | PyPI (`pipx install rithik`) | VERIFIED: 0.1.1 published 2026-09-19 by the publish workflow (trusted publishing, run 35426170459); `uvx --from rithik==0.1.1 rithik` runs from a clean environment |
-| `.github/workflows/` (CI + publish) | pushed 2026-09-19. Release v0.1.1: `build` and `pypi` succeeded, `npm` failed (see the npm row) |
+| `.github/workflows/` (CI + publish) | VERIFIED: release v0.1.1 published to PyPI and npm with no stored token. Future releases need only a version bump and a GitHub release |
 | CI | VERIFIED green 2026-09-19 (run 35424006519): 8/8 jobs, Python 3.9 and 3.13 and Node 18 and 24, on Ubuntu and Windows. The first run failed the golden check on Ubuntu (last-bit `exp` difference); the check now allows 1e-12 on `score_exact` |
 
 ## Findings from the port (2026-09-17)
@@ -49,9 +49,7 @@ Indian scam patterns.
 ## Next
 
 1. ~~Push `.github/` and watch CI~~ (done 2026-09-19).
-2. On npmjs.com, open the rithik package, go to Settings -> Trusted publishing -> GitHub Actions, and
-   enter Daemon-VI / rithik / publish.yml with no environment. Then run
-   `gh run rerun 35426170459 --failed -R Daemon-VI/rithik` to publish 0.1.1 to npm.
+2. ~~Publish to npm and PyPI~~ (done 2026-09-19: both at 0.1.1 through the workflow).
 3. Write `tests/test_rules.py`, a positive and a negative case per signal family.
 4. Tune on `dev` only, score `test` once more, and record it in EVAL.md. Any rule change goes
    into both runtimes: Python first, then regenerate the golden files, then the port.
