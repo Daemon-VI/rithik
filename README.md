@@ -1,6 +1,6 @@
 # rithik
 
-[![ci](https://github.com/Daemon-VI/rithik/actions/workflows/ci.yml/badge.svg)](https://github.com/Daemon-VI/rithik/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/rithik)](https://www.npmjs.com/package/rithik) [![PyPI](https://img.shields.io/pypi/v/rithik)](https://pypi.org/project/rithik/) [![ci](https://github.com/Daemon-VI/rithik/actions/workflows/ci.yml/badge.svg)](https://github.com/Daemon-VI/rithik/actions/workflows/ci.yml)
 
 `rithik` prints my card in your terminal, and it checks suspicious messages and links for the
 scam patterns common in India, entirely offline. Paste in an SMS, a WhatsApp forward or a link,
@@ -11,8 +11,8 @@ and it tells you which known patterns matched, why they matter, and what to do n
 With Node.js 18 or newer, you can run it without installing anything:
 
 ```sh
-npx rithik                          # once it is published to npm
-npx github:Daemon-VI/rithik         # works now, straight from GitHub
+npx rithik                          # run it without installing
+npx github:Daemon-VI/rithik         # or straight from GitHub
 npm install -g rithik               # or keep the `rithik` command around
 ```
 
@@ -23,8 +23,7 @@ Node 18 to 24 need no flag.
 With Python 3.9 or newer:
 
 ```sh
-pipx install git+https://github.com/Daemon-VI/rithik   # works now
-pipx install rithik                                    # once it is published to PyPI
+pipx install rithik                                    # from PyPI
 uvx rithik                                             # run once without installing
 ```
 
