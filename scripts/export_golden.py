@@ -137,20 +137,47 @@ def _render() -> dict[str, str]:
     }
 
 
+def _diff(stored: list[dict], fresh: list[dict]) -> list[str]:
+    """Differences that matter, by case. score_exact comes from the C library's exp(), which
+    differs in the last bit between platforms, so it gets the same tolerance the JS tests use."""
+    if len(stored) != len(fresh):
+        return [f"{len(stored)} cases stored, {len(fresh)} generated"]
+    problems = []
+    for index, (old, new) in enumerate(zip(stored, fresh)):
+        label = old.get("id", index)
+        if "expected" in old and "expected" in new:
+            old_e, new_e = dict(old["expected"]), dict(new["expected"])
+            if abs(old_e.pop("score_exact") - new_e.pop("score_exact")) > 1e-12:
+                problems.append(f"{label}: score_exact")
+            fields = [k for k in old_e.keys() | new_e.keys() if old_e.get(k) != new_e.get(k)]
+            if old["input"] != new["input"]:
+                fields.append("input")
+            problems += [f"{label}: {field}" for field in sorted(fields)]
+        elif old != new:
+            problems.append(f"{label}: differs")
+    return problems
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args(argv)
     rendered = _render()
     if args.check:
-        stale = [
-            name
-            for name, text in rendered.items()
-            if not (GOLDEN / name).exists() or (GOLDEN / name).read_text(encoding="utf-8") != text
-        ]
-        for name in stale:
-            print(f"stale: js/test/golden/{name} (run scripts/export_golden.py)", file=sys.stderr)
-        return 1 if stale else 0
+        problems = []
+        for name, text in rendered.items():
+            path = GOLDEN / name
+            if not path.exists():
+                problems.append(f"{name}: missing")
+                continue
+            problems += [
+                f"{name}: {p}" for p in _diff(json.loads(path.read_text("utf-8")), json.loads(text))
+            ]
+        for problem in problems:
+            print(f"stale: js/test/golden/{problem}", file=sys.stderr)
+        if problems:
+            print("run scripts/export_golden.py to regenerate", file=sys.stderr)
+        return 1 if problems else 0
     GOLDEN.mkdir(parents=True, exist_ok=True)
     for name, text in rendered.items():
         (GOLDEN / name).write_text(text, encoding="utf-8", newline="\n")
