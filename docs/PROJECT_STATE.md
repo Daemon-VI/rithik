@@ -1,6 +1,6 @@
 # Project state — rithik
 
-_Last updated 2026-09-17._
+_Last updated 2026-09-19._
 
 `rithik` is a zero-dependency command-line tool that ships in two runtimes:
 - the Python reference, installed with pipx or uvx;
@@ -27,8 +27,8 @@ Indian scam patterns.
 | `pipx install git+https://github.com/Daemon-VI/rithik` | VERIFIED 2026-09-16 in a throwaway venv |
 | npm (`npx rithik`) | NOT published. First publish is manual (`npm login`, `npm publish`); see docs/RELEASING.md |
 | PyPI (`pipx install rithik`) | NOT published. Needs the pending-publisher setup in docs/RELEASING.md |
-| `.github/workflows/` (CI + publish) | written but NOT pushed: gh's token lacks the `workflow` scope. Fix with `gh auth refresh -h github.com -s workflow` |
-| CI on Python 3.9, Node 18, Windows | never observed, because the workflow files are not on GitHub yet |
+| `.github/workflows/` (CI + publish) | pushed 2026-09-19. The publish workflow has never run, because no release exists yet |
+| CI | VERIFIED green 2026-09-19 (run 35424006519): 8/8 jobs, Python 3.9 and 3.13 and Node 18 and 24, on Ubuntu and Windows. The first run failed the golden check on Ubuntu (last-bit `exp` difference); the check now allows 1e-12 on `score_exact` |
 
 ## Findings from the port (2026-09-17)
 
@@ -48,8 +48,7 @@ Indian scam patterns.
 
 ## Next
 
-1. `gh auth refresh -h github.com -s workflow`, then commit and push `.github/`, and watch the
-   first CI run (Node 18 and Python 3.9 are unverified until then).
+1. ~~Push `.github/` and watch CI~~ (done 2026-09-19).
 2. `npm login` and `npm publish` for the first npm release, then configure trusted publishing
    on npmjs.com (docs/RELEASING.md).
 3. Write `tests/test_rules.py`, a positive and a negative case per signal family.
