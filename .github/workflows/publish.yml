@@ -1,0 +1,80 @@
+name: publish
+
+# Trusted publishing to both registries: PyPI and npm each accept uploads from this workflow,
+# so no API token is stored anywhere. See docs/RELEASING.md.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # setup-uv stopped publishing floating major tags at v8, so this has to name a full
+      # release.
+      - uses: astral-sh/setup-uv@v10.1.0
+
+      # Neither registry ever accepts a version twice, so a tag that disagrees with the code
+      # should stop here rather than upload something under the wrong number.
+      - name: Check that the tag matches every version string
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          test "$version" = "$(uv version --short)"
+          grep -qx "__version__ = \"$version\"" src/rithik/__init__.py
+          test "$version" = "$(node -p 'require("./package.json").version')"
+
+      - name: Build
+        run: uv build
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
+
+  pypi:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/rithik/
+    # Only the upload job can mint the OIDC token that PyPI exchanges for upload rights.
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist/
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
+
+  npm:
+    # Gated on the same checks as PyPI, so the two registries never disagree about a version.
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+          # A release build should never restore anything from a cache.
+          package-manager-cache: false
+
+      # Trusted publishing needs npm 11.5.1 or later, which not every Node 24 build bundles.
+      - run: npm install -g npm@latest
+
+      - run: npm test
+
+      # With trusted publishing, npm exchanges the OIDC token itself and attaches a
+      # provenance attestation; there is no NODE_AUTH_TOKEN.
+      - run: npm publish

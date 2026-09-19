@@ -1,0 +1,68 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # One failing cell should not hide whether the others pass.
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        # The oldest supported Python and the newest one.
+        python: ["3.9", "3.13"]
+    steps:
+      - uses: actions/checkout@v7
+
+      # setup-uv stopped publishing floating major tags at v8, so this has to name a full
+      # release.
+      - uses: astral-sh/setup-uv@v10.1.0
+
+      - name: Test
+        run: uv run --python ${{ matrix.python }} pytest -q
+
+      - name: Lint
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.13'
+        run: |
+          uv run ruff check
+          uv run ruff format --check
+
+      # The npm package is a port of the Python one and is tested against files generated
+      # from it. A Python change that forgets to regenerate them fails here, not in the port.
+      - name: Golden files are current
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.13'
+        run: uv run python scripts/export_golden.py --check
+
+  node:
+    name: node (${{ matrix.os }}, Node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        # The oldest Node that package.json promises, and the current LTS.
+        node: ["18", "24"]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Parity tests against the Python reference
+        run: npm test
+
+      - name: The packed tarball runs
+        shell: bash
+        run: |
+          npm pack --pack-destination "$RUNNER_TEMP"
+          cd "$RUNNER_TEMP"
+          npx --yes ./rithik-*.tgz --version
+          npx --yes ./rithik-*.tgz scam "Your SBI KYC expires today, update at sbi-kyc.top"
